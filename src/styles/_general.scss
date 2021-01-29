@@ -1,0 +1,36 @@
+*,
+::after,
+::before{
+    box-sizing: border-box;
+}
+
+ol[class] {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul[class] {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-container {
+    margin: 0 auto;
+    font-family: $font-stack;
+    width: 100%;
+    background-color: $primary-bg-color;
+}
+
+// .container {
+//     margin: 0 auto;
+//     min-width: 320px;
+//     width: 100%;
+//     max-width: 1200px;
+//     padding: 0 10px;
+// }
