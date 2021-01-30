@@ -22,83 +22,84 @@
   cursor: pointer;
 }
 
-.modal {
-  display: none;
-  margin: 25vh auto 0 auto;
-  padding: 50px 20px;
-  width: 30vw;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-}
-
-.addinfo {
-  display: none;
-}
-
-.modal.active {
-  display: block;
-}
-
-.modal.wrapper {
-  position: relative;
-}
-
-.modal.login .addinfo {
-  display: block;
-  height: 20px;
-}
-
-.modal.login {
-  padding: 50px 20px 30px;
-}
-
-/* Modal Content */
-// .modal-content {
-//     margin: auto;
-//     padding: 20px;
-//     width: 100%;
+// .modal {
+//   display: none;
+//   margin: 25vh auto 0 auto;
+//   padding: 50px 20px;
+//   width: 30vw;
+//   height: 100%;
+//   overflow: auto;
+//   background-color: rgba(0, 0, 0, 0.1);
+//   border-radius: 15px;
 // }
-.modal-content {
-  color: rgb(2, 95, 64);
-  background-color: #a1e5ee;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 25%;
-}
 
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 0;
-  right: 5px;
-  color: rgb(88, 88, 88);
-  // float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+// .addinfo {
+//   display: none;
+// }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+// .modal.active {
+//   position: relative;
+//   display: block;
+// }
 
-.inputs {
-  margin: 10px;
-  padding: 10px;
-  width: 230px;
-}
+// // .modal.wrapper {
+// //   position: relative;
+// // }
 
-.inputs.submit {
-  border-radius: 8px;
-  font-weight: bold;
-}
+// .modal.login .addinfo {
+//   display: block;
+//   height: 20px;
+// }
 
-.inputs.submit:hover {
-  cursor: pointer;
-  background-color: rgb(167, 167, 167);
-}
+// .modal.login {
+//   padding: 50px 20px 30px;
+// }
+
+// /* Modal Content */
+// // .modal-content {
+// //     margin: auto;
+// //     padding: 20px;
+// //     width: 100%;
+// // }
+// .modal-content {
+//   color: rgb(2, 95, 64);
+//   background-color: #a1e5ee;
+//   margin: auto;
+//   padding: 20px;
+//   border: 1px solid #888;
+//   width: 25%;
+// }
+
+// /* The Close Button */
+// .close {
+//   position: absolute;
+//   top: 0;
+//   right: 5px;
+//   color: rgb(88, 88, 88);
+//   // float: right;
+//   font-size: 28px;
+//   font-weight: bold;
+// }
+
+// .close:hover,
+// .close:focus {
+//   color: #000;
+//   text-decoration: none;
+//   cursor: pointer;
+// }
+
+// .inputs {
+//   margin: 10px;
+//   padding: 10px;
+//   width: 230px;
+// }
+
+// .inputs.submit {
+//   border-radius: 8px;
+//   font-weight: bold;
+// }
+
+// .inputs.submit:hover {
+//   cursor: pointer;
+//   background-color: rgb(167, 167, 167);
+// }

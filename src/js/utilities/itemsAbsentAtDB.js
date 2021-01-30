@@ -11,7 +11,7 @@ export default function itemsAbsentAtDB() {
         if (data.length == 0) {
             divDescrition.textContent = "No items have been added";
         }
-        root.append(divDescrition);
+        root.prepend(divDescrition);
     })
     .catch((err) => {
         console.log(err.message);
