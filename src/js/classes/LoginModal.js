@@ -31,14 +31,8 @@ export default class LoginModal extends Modal {
 			name: "submit", 
 			id: "submit", 
 			classes: ["inputs", "submit"], 
-			value: "SIGN IN"}).render();
+			value: "SUBMIT"}).render();
 
-		// const select = new Select({
-		// 	id: "Выберите врача",
-		// 	classes: ["form-select"],
-		// 	options: ["Кардиолог", "Стоматолог", "Терапевт"],
-		// 	}).render();
-		// return [login, password, submit, select];
 		return [login, password, submit];
 	}
 }

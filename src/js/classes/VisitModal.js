@@ -7,7 +7,7 @@ export default class VisitModal extends Modal {
   }
   createFormElements() {
     const select = new Select({
-      id: "Выберите врача",
+      id: "Выберите врача", ///наверное, лучше ИД написать на англ
       classes: ["form-select"],
       options: ["Выберите врача", "Кардиолог", "Стоматолог", "Терапевт"],
     }).render();
