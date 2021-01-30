@@ -1,4 +1,4 @@
-#header-wrapper {
+.header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,20 +6,8 @@
     padding: 20px 60px;
 }
 
-#autorization {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    width: 350px;
-    margin-left: 20px;
-}
-
-#authorizationForm {
-    display: flex;
-}
-
 #enter, #createVisit {
+    display: none;
     text-transform: uppercaseenter;
     font-weight: bold;
     font-size: 24px;
@@ -33,47 +21,75 @@
     cursor: pointer;
 }
 
-////////////////////
 .modal {
     display: none;
     margin: 25vh auto 0 auto;
-    padding: 50px 0;
-    width: 50vw;
+    padding: 50px 20px;
+    width: 85vw;
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
-    // background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    /* Black w/ opacity */
     }
     
-    .modal.active {
+.addinfo {
+    display: none;
+}
+
+.modal.active {
     display: block;
-    }
+}
+
+.modal.wrapper {
+    position: relative;
+}
+
+.modal.login .addinfo {
+    display: block;
+    height: 20px;
+}
+
+.modal.login {
+    padding: 50px 20px 30px;
+}
     
     /* Modal Content */
-    .modal-content {
-    // background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    // border: 1px solid #888;
-    width: 100%;
-    }
+// .modal-content {
+//     margin: auto;
+//     padding: 20px;
+//     width: 100%;
+// }
     
     /* The Close Button */
-    .close {
-    color: #aaaaaa;
-    float: right;
+.close {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: rgb(88, 88, 88);
+    // float: right;
     font-size: 28px;
     font-weight: bold;
-    }
+}
     
-    .close:hover,
-    .close:focus {
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-    }
+}
+
+.inputs {
+    margin: 10px;
+    padding: 10px;
+    width: 230px;
+}
+
+.inputs.submit {
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.inputs.submit:hover {
+    cursor: pointer;
+    background-color: rgb(167, 167, 167);
+}
