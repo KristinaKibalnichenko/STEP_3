@@ -6,8 +6,12 @@ import Select from "./classes/Select.js";
 // import LoginModal from "./classes/LoginModal.js";
 import { loginBtn, createVisitBtn, root } from "./utilities/constants.js";
 import { createAutorizationWindow } from "./utilities/autorization.js";
+import getInfoFromDB from "./utilities/getInfoFromDB.js";
+import pushInfoToDB from "./utilities/pushInfoToDB.js";
+import itemsAbsentAtDB from "./utilities/itemsAbsentAtDB.js";
 
 
+console.log("LS: ", localStorage.getItem("token"));
 if (localStorage.getItem("token") == null) {
 	console.log(loginBtn);
 	loginBtn.style.display = 'block';
@@ -15,8 +19,22 @@ if (localStorage.getItem("token") == null) {
 } else {
 	console.log(createVisitBtn);
 	createVisitBtn.style.display = 'block';
+	itemsAbsentAtDB();
 }
 
+// pushInfoToDB()
+// 	.then((data) => {
+// 		console.log(data);
+// 		getInfoFromDB().then((data) => {
+// 			console.log("data ", data);
+// 		})
+// 		.catch((err) => {
+// 			console.log(err.message);
+// 		});
+// 	})
+// 	.catch((err) => {
+// 		console.log(err.message);
+// 	});
 
 ///////////////////////////////////////////////////////////////////////////////////////
 function createSearchForm() {
