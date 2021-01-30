@@ -43,7 +43,7 @@ export default class VisitDoctor {
     const urgency = new Select({
       id: "urgency",
       classes: ["form-select"],
-      options: ["Срочность", "Обычная", "Приоритетная", "Срочная"],
+      options: ["Priority", "High", "Normal", "Low"],
     }).render();
     return [purposeVisit, shortDescription, patient, urgency];
   }

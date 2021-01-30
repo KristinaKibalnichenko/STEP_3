@@ -8,7 +8,7 @@ export default class VisitCardiologist extends VisitDoctor {
   }
   createFormElements() {
     const pressure = new Input({
-      type: "pressure",
+      type: "number",
       name: "pressure",
       required: true,
       id: "pressure",
@@ -19,7 +19,7 @@ export default class VisitCardiologist extends VisitDoctor {
     }).render();
 
     const massIndex = new Input({
-      type: "massindex",
+      type: "number",
       name: "massindex",
       required: true,
       id: "massindex",
@@ -30,7 +30,7 @@ export default class VisitCardiologist extends VisitDoctor {
     }).render();
 
     const heartDiseases = new TextArea({
-      type: "diseases",
+      maxlength: "100", 
       name: "diseases",
       required: true,
       id: "diseases",
@@ -40,7 +40,7 @@ export default class VisitCardiologist extends VisitDoctor {
     }).render();
 
     const age = new Input({
-      type: "age",
+      type: "number",
       name: "age",
       required: true,
       id: "age",

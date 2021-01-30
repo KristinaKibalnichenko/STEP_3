@@ -7,7 +7,7 @@ export default class VisitTherapist extends VisitDoctor {
   }
   createFormElements() {
     const age = new Input({
-      type: "age",
+      type: "number",
       name: "age",
       required: true,
       id: "age",
