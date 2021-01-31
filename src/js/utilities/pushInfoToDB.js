@@ -1,4 +1,4 @@
-// import getInfoFromDB from "./getInfoFromDB.js";
+import getInfoFromDB from "./getInfoFromDB.js";
 
 export default function pushInfoToDB() {
 	let token = localStorage.getItem("token");
