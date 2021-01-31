@@ -1,4 +1,4 @@
-class TextArea {
+export default class TextArea {
   constructor({ type, name, required, id, classes, placeholder, value }) {
     this.type = type;
     this.name = name;
