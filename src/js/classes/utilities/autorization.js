@@ -1,5 +1,5 @@
 import { loginBtn, createVisitBtn, root } from "./constants.js";
-import LoginModal from "../classes/LoginModal.js";
+import LoginModal from "../src/js/classes/LoginModal.js";
 import getInfoFromDB from "./getInfoFromDB.js";
 import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
 import createModalVisit from "./creatvisit.js";
@@ -43,7 +43,7 @@ function signIn(event) {
 			loginForm.remove();
 			loginBtn.style.display = "none";
 			createVisitBtn.style.display = "block";
-			
+
 			itemsAbsentAtDB();
 
 			// createSearchForm();
@@ -79,7 +79,7 @@ function autorization(personalData) {
 			'Content-Type': 'application/json;charset=utf-8'
 		},
 	})
-	.then((response) => {	
+	.then((response) => {
 		status = response.status;
 		console.log("autorization", response);
 		return response.text();
