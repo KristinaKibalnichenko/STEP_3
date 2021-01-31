@@ -1,5 +1,5 @@
 import { loginBtn, createVisitBtn, root } from "./constants.js";
-import LoginModal from "../src/js/classes/LoginModal.js";
+import LoginModal from "../classes/LoginModal.js";
 import getInfoFromDB from "./getInfoFromDB.js";
 import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
 import createModalVisit from "./creatvisit.js";

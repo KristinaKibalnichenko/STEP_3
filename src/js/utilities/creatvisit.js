@@ -1,5 +1,5 @@
 import { createVisitBtn, root } from "./constants.js";
-import VisitModal from "../src/js/classes/VisitModal.js";
+import VisitModal from "../classes/VisitModal.js";
 
 
 export default function createModalVisit() {

@@ -17,10 +17,10 @@ if (localStorage.getItem("token") == null) {
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-	console.log(createVisitBtn);
-	createVisitBtn.style.display = 'block';
-	itemsAbsentAtDB();
-	createModalVisit();
+  console.log(createVisitBtn);
+  createVisitBtn.style.display = "block";
+  itemsAbsentAtDB();
+  createModalVisit();
 }
 
 // pushInfoToDB()
@@ -36,7 +36,6 @@ if (localStorage.getItem("token") == null) {
 // 	.catch((err) => {
 // 		console.log(err.message);
 // 	});
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 function createSearchForm() {
