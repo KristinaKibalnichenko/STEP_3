@@ -1,3 +1,5 @@
+import getInfoFromDB from "./getInfoFromDB.js";
+
 export default function pushInfoToDB() {
 	let token = localStorage.getItem("token");
 	return fetch('https://ajax.test-danit.com/api/cards', {
@@ -27,10 +29,10 @@ export default function pushInfoToDB() {
 // 	});
 
 const content = {
-	title: "Визит к кардиологу",
-	description: "Плановый визит",
-	doctor: "Cardiologist",
-	bp: "24",
+	doctor: "Dentist",
+	title: "Визит к стоматологу",
+	description: "Ургентный визит",
+	priority: "High",
 	age: 23,
-	weight: 70
+	fullName: "Сергеева Наталья Петровна"
 };
