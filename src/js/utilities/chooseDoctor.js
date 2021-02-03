@@ -1,8 +1,10 @@
-import VisitCardiologist from "../src/js/classes/VisitCardiologist.js";
-import VisitDentist from "../src/js/classes/VisitDentist.js";
-import VisitTherapist from "../src/js/classes/VisitTherapist.js";
+// import VisitCardiologist from "../src/js/classes/VisitCardiologist.js";
+// import VisitDentist from "../src/js/classes/VisitDentist.js";
+// import VisitTherapist from "../src/js/classes/VisitTherapist.js";
 
-// export default function chooseDoctor() {
+// const select = document.getElementsByTagName("select")[0];
+// console.log(select);
+// export default function chooseDoctor(e) {
 //   const cardiologistForm = new VisitCardiologist({
 //     id: "visitcardiologist",
 //     classes: ["modal", "visit"],
@@ -15,15 +17,13 @@ import VisitTherapist from "../src/js/classes/VisitTherapist.js";
 //     id: "visittherapist",
 //     classes: ["modal", "visit"],
 //   });
-
-//   if ((select.options[1].selected = true)) {
-//     this.option.append(cardiologistForm.modal);
+//   if (select.option === "Кардиолог") {
+//     select.append(cardiologistForm.modal);
 //   }
-//   if ((select.options[2].selected = true)) {
-//     this.option.append(dentistForm.modal);
-//   } else if ((select.options[3].selected = true)) {
-//     this.option.append(therapistForm.modal);
-//   }
+//   // if ((select.option[2].selected = true)) {
+//   //   select.append(dentistForm.modal);
+//   // } else if ((select.option[3].selected = true)) {
+//   //   select.append(therapistForm.modal);
+//   // }
 // }
-
-// chooseDoctor();
+// select.addEventListener("change", chooseDoctor);
