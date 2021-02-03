@@ -8,6 +8,7 @@ import { loginBtn, createVisitBtn, root } from "./utilities/constants.js";
 import { createAutorizationWindow } from "./utilities/autorization.js";
 import getInfoFromDB from "./utilities/getInfoFromDB.js";
 import pushInfoToDB from "./utilities/pushInfoToDB.js";
+import createSearchForm from "./utilities/createSearchForm.js";
 import itemsAbsentAtDB from "./utilities/itemsAbsentAtDB.js";
 import createModalVisit from "./utilities/creatvisit.js";
 
@@ -17,10 +18,12 @@ if (localStorage.getItem("token") == null) {
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-  console.log(createVisitBtn);
-  createVisitBtn.style.display = "block";
-  itemsAbsentAtDB();
-  createModalVisit();
+	console.log(createVisitBtn);
+  createVisitBtn.style.display = 'block';
+  createSearchForm();
+
+	itemsAbsentAtDB();
+	createModalVisit();
 }
 
 // pushInfoToDB()
@@ -38,27 +41,6 @@ if (localStorage.getItem("token") == null) {
 // 	});
 
 ///////////////////////////////////////////////////////////////////////////////////////
-function createSearchForm() {
-  const form = document.createElement("form");
-  const search = document.createElement("input");
-  const status = document.createElement("select");
-  const priority = document.createElement("select");
-  const submit = document.createElement("input");
-
-  form.action = "#";
-  form.id = "searchForm";
-
-  search.type = "text";
-  search.id = "searchField";
-
-  status.id = "statusField";
-
-  priority.id = "priorityField";
-
-  submit.type = "submit";
-  submit.value = "Search";
-  submit.id = "submitField";
-}
 
 // alert(response.headers.get('Content-Type'));
 
