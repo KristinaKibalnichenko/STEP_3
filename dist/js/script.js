@@ -18,19 +18,12 @@ if (localStorage.getItem("token") == null) {
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-<<<<<<< HEAD
-  console.log(createVisitBtn);
-  createVisitBtn.style.display = "block";
-  itemsAbsentAtDB();
-  createModalVisit();
-=======
 	console.log(createVisitBtn);
   createVisitBtn.style.display = 'block';
   createSearchForm();
 
 	itemsAbsentAtDB();
 	createModalVisit();
->>>>>>> krist-br
 }
 
 // pushInfoToDB()
