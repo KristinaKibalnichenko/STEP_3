@@ -4,6 +4,7 @@ const concat = require('gulp-concat');
 const rename = require("gulp-rename");
 const uglify = require('gulp-uglify-es').default;
 
+
 const scripts = () =>
 	src("./src/js/*.js")
 		.pipe(concat("script.js"))
