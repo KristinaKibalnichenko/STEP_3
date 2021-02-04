@@ -8,20 +8,20 @@ export default class VisitModal extends Modal {
   }
   createForm(formElements = []) {
     const formVisit = new Form({
-        id: "visit-form",
-        classes: ["formclasses"],
-        action: "",
+      id: "visit-form",
+      classes: ["formclasses"],
+      action: "",
     }).render();
     formVisit.append(...formElements);
     return [formVisit];
   }
-  
+
   createFormElements() {
     const label = document.createElement("label");
     label.textContent = "Выберите врача: ";
 
     const select = new Select({
-      id: "chooseDoctor", 
+      id: "chooseDoctor",
       classes: ["form-select"],
       options: ["Кардиолог", "Стоматолог", "Терапевт"],
     }).render();

@@ -11,21 +11,23 @@ import pushInfoToDB from "./utilities/pushInfoToDB.js";
 import createSearchForm from "./utilities/createSearchForm.js";
 import itemsAbsentAtDB from "./utilities/itemsAbsentAtDB.js";
 import createModalVisit from "./utilities/creatvisit.js";
+// import VisitsPalette from "./classes/CardsDesk.js";
 
 console.log("LS: ", localStorage.getItem("token"));
+
 if (localStorage.getItem("token") == null) {
   console.log(loginBtn);
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-	console.log(createVisitBtn);
-  createVisitBtn.style.display = 'block';
+  console.log(createVisitBtn);
+  createVisitBtn.style.display = "block";
   createSearchForm();
 
-	itemsAbsentAtDB();
-	createModalVisit();
+  itemsAbsentAtDB();
+  createModalVisit();
+  // getAllVisits();
 }
-
 // pushInfoToDB()
 // 	.then((data) => {
 // 		console.log(data);
