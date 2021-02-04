@@ -1,6 +1,8 @@
 import { loginBtn, createVisitBtn, root } from "./constants.js";
+// import Modal from "../classes/Modal.js";
 import LoginModal from "../classes/LoginModal.js";
 import getInfoFromDB from "./getInfoFromDB.js";
+import createSearchForm from "./createSearchForm.js";
 import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
 import createModalVisit from "./creatvisit.js";
 
@@ -9,8 +11,9 @@ export function createAutorizationWindow() {
 		id: "modalLogin",
 		classes: ["modal", "login"],
 	});
-	loginForm.modal.style.width = "39vw";
-	console.log("loginForm ", loginForm);
+	loginForm.createFormElements();
+	loginForm.modal.style.width = "50vw";
+	// console.log("loginForm ", loginForm);
 	root.append(loginForm.modal);
 	loginBtn.addEventListener("click", function() {
 		loginForm.openModal();
@@ -44,10 +47,9 @@ function signIn(event) {
 			loginBtn.style.display = "none";
 			createVisitBtn.style.display = "block";
 
+			createSearchForm();
+
 			itemsAbsentAtDB();
-
-			// createSearchForm();
-
 			createModalVisit();
 		} else {
 			span.textContent = 'Incorrect username or password';
