@@ -7,7 +7,8 @@ import getInfoFromDB from "./getInfoFromDB.js";
 export default function createSearchForm() {
     const divSearch = document.createElement("div");
     divSearch.id = "divSearchId";
-    divSearch.style.cssText = "display: flex; justify-content: center; align-items: center";
+    divSearch.style.cssText = `display: flex; justify-content: center; align-items: center; margin: 20px 150px; 
+                               padding: 50px 30px; background-color: lightgrey; border-radius: 15px`;
 
     const formSearch = new Form({
         id: "searchForm",
@@ -53,6 +54,9 @@ export default function createSearchForm() {
             console.log("data ", data);
             console.log(data.length);
             
+            if (data.length !== 0) {
+                
+            }
         })
         .catch((err) => {
             console.log(err.message);
