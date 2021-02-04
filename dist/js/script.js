@@ -21,7 +21,7 @@ if (localStorage.getItem("token") == null) {
 	console.log(createVisitBtn);
   createVisitBtn.style.display = 'block';
   createSearchForm();
-
+  // createCardsForm();
 	itemsAbsentAtDB();
 	createModalVisit();
 }
