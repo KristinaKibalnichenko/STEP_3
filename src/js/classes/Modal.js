@@ -6,8 +6,6 @@ export default class Modal {
     }
     render() {
       const contentelems = this.createForm(this.createFormElements()) || "";
-      console.log("contentelems", contentelems);
-      // const content = this.createForm || this.createFormElements() || "";
       const span = this.createElement({
         elem: "span",
         content: "X",

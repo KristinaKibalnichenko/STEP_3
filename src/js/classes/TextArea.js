@@ -10,7 +10,7 @@ export default class TextArea {
   }
   render() {
     let textarea = document.createElement("textarea");
-    textarea.type = this.type;
+    // textarea.type = this.type;
     textarea.name = this.name;
     textarea.required = this.required;
     textarea.id = this.id;

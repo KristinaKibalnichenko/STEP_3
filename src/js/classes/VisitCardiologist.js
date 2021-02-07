@@ -7,6 +7,8 @@ export default class VisitCardiologist extends VisitDoctor {
     super({ id, classes });
   }
   createFormElements() {
+    const doctorFormElements = super.createFormElements();
+
     const pressure = new Input({
       type: "number",
       name: "pressure",
@@ -30,7 +32,7 @@ export default class VisitCardiologist extends VisitDoctor {
     }).render();
 
     const heartDiseases = new TextArea({
-      maxlength: "100", 
+      maxlength: "300", 
       name: "diseases",
       required: true,
       id: "diseases",
@@ -49,6 +51,14 @@ export default class VisitCardiologist extends VisitDoctor {
       errorText: "Поле не валидно",
       value: "",
     }).render();
-    return [pressure, massIndex, heartDiseases, age];
+
+    const submit = new Input({
+      type: "submit", 
+      name: "submit", 
+      id: "submitvisit", 
+      classes: ["inputs", "submit"], 
+      value: "Create"}).render();
+
+    return [...doctorFormElements, pressure, massIndex, heartDiseases, age, submit];
   }
 }
