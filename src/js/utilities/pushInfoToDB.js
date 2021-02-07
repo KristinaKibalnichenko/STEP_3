@@ -1,7 +1,8 @@
 import getInfoFromDB from "./getInfoFromDB.js";
 
-export default function pushInfoToDB() {
+export default function pushInfoToDB(content) {
 	let token = localStorage.getItem("token");
+	// console.log("token  for post: ", token);
 	return fetch('https://ajax.test-danit.com/api/cards', {
 		method: "POST",
 		body: JSON.stringify(content),
@@ -27,12 +28,3 @@ export default function pushInfoToDB() {
 // 	.catch((err) => {
 // 		console.log(err.message);
 // 	});
-
-const content = {
-	doctor: "Dentist",
-	title: "Визит к стоматологу",
-	description: "Ургентный визит",
-	priority: "High",
-	age: 23,
-	fullName: "Сергеева Наталья Петровна"
-};

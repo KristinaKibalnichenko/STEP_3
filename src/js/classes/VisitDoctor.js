@@ -1,12 +1,28 @@
 import Select from "./Select.js";
 import Input from "./Input.js";
 import TextArea from "./TextArea.js";
+import Form from "./Form.js";
 
 export default class VisitDoctor {
   constructor({ id, classes }) {
     this.id = id;
     this.classes = classes;
+    this.visit = this.render();
   }
+  render() {
+    const contentelems = this.createFormElements() || "";
+    // console.log("doctorstelems", contentelems);
+
+    const formDoctor = new Form({
+      id: "doctorForm",
+      classes: this.classes,
+      content: [...contentelems],
+      action: "",
+    }).render();
+    formDoctor.append(...contentelems);
+    return formDoctor;
+  }
+
   createFormElements() {
     const purposeVisit = new Input ({
       type: "text",
@@ -20,7 +36,7 @@ export default class VisitDoctor {
     }).render();
 
     const shortDescription = new TextArea({
-      type: "text",
+      maxlength: "300",
       name: "description",
       required: true,
       id: "description",
@@ -42,9 +58,11 @@ export default class VisitDoctor {
 
     const urgency = new Select({
       id: "urgency",
+      required: true,
       classes: ["form-select"],
       options: ["Priority", "High", "Normal", "Low"],
     }).render();
+
     return [purposeVisit, shortDescription, patient, urgency];
   }
 }

@@ -63,13 +63,14 @@ a {
 
 .modal {
   display: none;
-  margin: 25vh auto 0 auto;
+  margin: 10vh auto 0 auto;
   padding: 50px 20px;
-  width: 30vw;
+  width: 45vw;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+  border: 2px solid rgba(240, 23, 23, 0.1);
 }
 
 .addinfo {
@@ -119,11 +120,15 @@ a {
   cursor: pointer;
 }
 
-.inputs {
+.inputs,
+.textarea {
   margin: 10px;
   padding: 10px;
-  width: 350px;
-  font-size: 22px;
+  width: 528px;
+  font-size: 20px;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #817d7d;
 }
 
 .inputs.submit {
@@ -146,4 +151,42 @@ a {
 
 .search {
   margin: 0 20px;
+}
+
+.status,
+.priority {
+  margin: 10px;
+  padding: 10px;
+  width: 150px;
+  font-size: 22px;
+  cursor: pointer;
+  border: 2px solid #817d7d;
+  border-radius: 8px;
+}
+
+.status:focus,
+.priority:focus {
+  background-color: #dff4f7;
+}
+
+.form-select {
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  font-size: 22px;
+  cursor: pointer;
+  border: 2px solid #817d7d;
+  border-radius: 8px;
+}
+
+.modal.visit {
+  color: #724fac;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.textarea:focus,
+.inputs:focus {
+  background-color: #dff4f7;
 }
