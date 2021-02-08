@@ -17,15 +17,22 @@ export default class VisitModal extends Modal {
   }
 
   createFormElements() {
-    const label = document.createElement("label");
-    label.textContent = "Выберите врача: ";
+    // const label = document.createElement("label");
+    // label.textContent = "Выберите врача: ";
 
     const select = new Select({
       id: "chooseDoctor",
       classes: ["form-select"],
-      options: ["", "Кардиолог", "Стоматолог", "Терапевт"],
+      options: ["Выберите врача: ", "Кардиолог", "Стоматолог", "Терапевт"],
     }).render();
-    label.append(select);
-    return [label];
+    // label.append(select);
+    // return [label];
+    return [select];
   }
+
+  closeModal() {
+    super.closeModal();
+    const doctorForm = document.getElementById("doctorForm");
+    doctorForm.remove();
+}
 }
