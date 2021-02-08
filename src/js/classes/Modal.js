@@ -6,24 +6,22 @@ export default class Modal {
     }
     render() {
       const contentelems = this.createForm(this.createFormElements()) || "";
+      
       const span = this.createElement({
         elem: "span",
         content: "X",
         classes: ["close"],
       });
-      const additionalInfo = this.createElement({
-        elem: "div",
-        content: "",
-        classes: ["addinfo"],
-        id: "addinfo",
-      });
-      span.addEventListener("click", () => this.closeModal());
+      
       const divModal = this.createElement({
         elem: "div",
         classes: this.classes,
-        content: [span, ...contentelems, additionalInfo],
+        content: [span, ...contentelems],
         id: this.id,
       });
+
+      span.addEventListener("click", () => this.closeModal());
+
       return divModal;
     }
   
@@ -47,12 +45,23 @@ export default class Modal {
     }
     // createFormElements() {}
     openModal() {
-      console.log(this.modal);
+      // console.log(this.modal);
       this.modal.classList.add("active");
     }
     closeModal() {
       this.modal.classList.remove("active");
-      document.getElementById("addinfo").textContent = "";
+      
+      const forms = Object.values(this.modal.getElementsByTagName("form"));
+      forms.forEach((form) => {
+        Object.values(form.children).forEach((element) => {
+          if (element.getAttribute("type") != "submit") {
+            element.value = "";
+          }
+          if (element.tagName === "SELECT") {
+            element.value = element.firstElementChild.value;
+          }
+        });
+      });
     }
   }
   

@@ -7,16 +7,19 @@ export default class Select {
 	}
 	render() {
 	  const selectList = document.createElement("select");
-	  this.options.forEach((optionId) => {
+	  this.options.forEach((optionId, index) => {
 		const opt = document.createElement("option");
-		opt.value = optionId;
 		opt.textContent = optionId;
-		// opt.classList.add(...this.classes);
+		if (index == 0) {
+			opt.setAttribute("disabled", "disabled");
+			opt.setAttribute("selected", "selected");
+		}
 		selectList.appendChild(opt);
 	  });
-	  this.selectList = selectList;
+	  
 	  selectList.classList.add(...this.classes);
 	  selectList.required = this.required;
+	  this.selectList = selectList;
 	  return selectList;
 	}
   }

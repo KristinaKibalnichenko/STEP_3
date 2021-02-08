@@ -13,19 +13,17 @@ export default class LoginModal extends Modal {
             action: "",
         }).render();
         form.append(...formElements);
-  
-        // const form2 = new Form({
-        //   id: "register-form-2",
-        //   classes: ["formclasses"],
-        //   action: "",
-        // }).render();
-        // form2.append(...formElements);
-        
-        // return [form, form2];
         return [form];
     }
 
     createFormElements () {	
+        const additionalInfo = this.createElement({
+            elem: "div",
+            content: "",
+            classes: ["addinfo"],
+            id: "addinfo",
+          });
+
         const login = new Input({
             type: "email", 
             name: "login", 
@@ -53,7 +51,12 @@ export default class LoginModal extends Modal {
             classes: ["inputs", "submit"], 
             value: "SUBMIT"}).render();
 
-            return [login, password, submit];
+            return [additionalInfo, login, password, submit];
             // return this.createForm([login, password, submit]);
+    }
+
+    closeModal() {
+        super.closeModal();
+        document.getElementById("addinfo").textContent = "";
     }
 }
