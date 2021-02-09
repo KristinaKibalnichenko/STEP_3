@@ -34,5 +34,5 @@ export default class VisitModal extends Modal {
     super.closeModal();
     const doctorForm = document.getElementById("doctorForm");
     doctorForm.remove();
-}
+  }
 }

@@ -2,7 +2,7 @@ import getInfoFromDB from "./getInfoFromDB.js";
 
 export default function pushInfoToDB(content) {
 	let token = localStorage.getItem("token");
-	// console.log("token  for post: ", token);
+	console.log("token  for post: ", token);
 	return fetch('https://ajax.test-danit.com/api/cards', {
 		method: "POST",
 		body: JSON.stringify(content),
