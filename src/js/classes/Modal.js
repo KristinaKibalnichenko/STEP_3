@@ -54,6 +54,7 @@ export default class Modal {
       const forms = Object.values(this.modal.getElementsByTagName("form"));
       forms.forEach((form) => {
         Object.values(form.children).forEach((element) => {
+          // console.log("type:", element.getAttribute("type"));
           if (element.getAttribute("type") != "submit") {
             element.value = "";
           }

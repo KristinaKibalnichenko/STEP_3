@@ -25,13 +25,13 @@ export function createAutorizationWindow() {
 let token, status;
 function signIn(event) {
 	event.preventDefault();
-	const email = document.getElementById('login');
-	const password = document.getElementById('password');
+	const email = document.querySelector("#login");
+	const password = document.querySelector("#password");
 	const personalData = {
 		"email": email.value,
 		"password": password.value,
 	};
-	console.log(email.value, password.value);
+	// console.log(email.value, password.value);
 
 	autorization(personalData)
 	.then((data) => {

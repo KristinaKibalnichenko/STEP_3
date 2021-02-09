@@ -4,78 +4,104 @@ import VisitTherapist from "../classes/VisitTherapist.js";
 import pushInfoToDB from "./pushInfoToDB.js";
 import getInfoFromDB from "./getInfoFromDB.js";
 
-export default function createDoctorForm(index) {
-    const visitForm = document.getElementById("modalVisit");
-
+export default function createDoctorForm(index, visitModalForm) {
     const cardiologistForm = new VisitCardiologist({
-        id: "visitcardiologist",
+        // id: "visitcardiologist",
         classes: ["modal", "visit"],
     }).render();
     const dentistForm = new VisitDentist({
-        id: "visitdentist",
+        // id: "visitdentist",
         classes: ["modal", "visit"],
     }).render();
     const therapistForm = new VisitTherapist({
-        id: "visittherapist",
+        // id: "visittherapist",
         classes: ["modal", "visit"],
     }).render();
 
     const doctorForm = document.querySelector('#doctorForm');
-    // console.log("temp", doctorForm);
-    let content = {};
     
     if (doctorForm != null) {
         doctorForm.remove();
     }
 
+    let content = {};
     if (index === 1) {
         content.doctor = "Cardiologist";
-        visitForm.append(cardiologistForm);
-        // console.log("cardiologistForm", cardiologistForm);
+        visitModalForm.modal.append(cardiologistForm);
     }
     if (index === 2) {
         content.doctor = "Dentist";
-        visitForm.append(dentistForm);
+        visitModalForm.modal.append(dentistForm);
     }
     if (index === 3) {
         content.doctor = "Therapist";
-        visitForm.append(therapistForm);
+        visitModalForm.modal.append(therapistForm);
     }
     const submitBtn = document.getElementById("submitvisit");
-    submitBtn.addEventListener("click", (e) => {
+    submitBtn.addEventListener("click", function(e) {
         e.preventDefault();
-        content.title = document.querySelector('#purpose').value;
-        content.description = document.querySelector('#description').value;
-        content.fullName = document.querySelector('#patient').value;
-        // content.priority = document.querySelector('#urgency').value;
+        let flag = true;
+        
+        const title = document.querySelector('#purpose');
+        const description = document.querySelector('#description');
+        const fullName = document.querySelector('#patient');
+        const priority = document.querySelector('.urgency');
+        content.title = title.value;
+        content.description = description.value;
+        content.fullName = fullName.value;
+        content.priority = priority.value;
+        if (!title.validity.valid || !description.validity.valid || !fullName.validity.valid || !priority.validity.valid) {
+            flag = false;
+        }
         if (index === 1) {
-            content.pressure = document.querySelector('#pressure').value;
-            content.massIndex = document.querySelector('#massindex').value;
-            content.diseases = document.querySelector('#diseases').value;
-            content.age = document.querySelector('#age').value;
+            const pressure = document.querySelector('#pressure');
+            const massIndex = document.querySelector('#massindex');
+            const diseases = document.querySelector('#diseases');
+            const age = document.querySelector('#age');
+            content.pressure = pressure.value;
+            content.massIndex = massIndex.value;
+            content.diseases = diseases.value;
+            content.age = age.value;
+            if (!pressure.validity.valid || !massIndex.validity.valid || !diseases.validity.valid || !age.validity.valid) {
+                flag = false;
+            }
         }
         if (index === 2) {
-            content.lastvisitdate = document.querySelector('#lastvisitdate').value;
+            const lastvisitdate = document.querySelector('#lastvisitdate');
+            content.lastvisitdate = lastvisitdate.value;
+            if (!lastvisitdate.validity.valid) {
+                flag = false;
+            }
         }
         if (index === 3) {
-            content.age = document.querySelector('#age').value;
+            const age = document.querySelector('#age');
+            content.age = age.value;
+            if (!age.validity.valid) {
+                flag = false;
+            }
         }
-        console.log(content);
 
-        pushInfoToDB(content)
-            .then((data) => {
-                console.log(data);
-                // !!! Здесь нужно сохранять ИД карточки (как сохранять зависит от способа отображения в форме) !!!
-                getInfoFromDB().then((data) => {
-                    console.log("data ", data);
+        console.log("content", content);
+        console.log("flag: ", flag);
+        if (!flag) {
+            console.log("Some field(s) do(es) not valid");
+        } else {
+            pushInfoToDB(content)
+                .then((data) => {
+                    console.log(data);
+                    // !!! Здесь нужно сохранять ИД карточки (как сохранять зависит от способа отображения в форме) !!!
+                    getInfoFromDB().then((data) => {
+                        console.log("data ", data);
+                        // createCardsForm();
+                    })
+                    .catch((err) => {
+                        console.log(err.message);
+                    });
                 })
                 .catch((err) => {
                     console.log(err.message);
                 });
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-            visitForm.remove();
+            visitModalForm.closeModal();
+        }
     });
 }

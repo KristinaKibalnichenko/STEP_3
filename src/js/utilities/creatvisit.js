@@ -4,20 +4,21 @@ import createDoctorForm from "./createDoctorForm.js";
 
 export default function createModalVisit() {
   console.log(true);
-  const visitForm = new VisitModal({
+  const visitModalForm = new VisitModal({
     id: "modalVisit",
     classes: ["modal", "visit"],
   });
   
-  root.append(visitForm.modal);
+  root.append(visitModalForm.modal);
   createVisitBtn.addEventListener("click", function () {
-    visitForm.openModal();
-    
+    visitModalForm.openModal();
+    console.log("visitModalForm", visitModalForm);
+
     const select = document.querySelector(".form-select");
   
     select.addEventListener("change", () => {
       let index = select.options.selectedIndex;
-      createDoctorForm(index);
+      createDoctorForm(index, visitModalForm);
     });
   });
 }
