@@ -61,6 +61,14 @@ a {
   cursor: pointer;
 }
 
+.work-table {
+  background: url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1200px;
+}
+
 #main {
   position: relative;
 }
