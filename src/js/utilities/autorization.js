@@ -3,7 +3,8 @@ import { loginBtn, createVisitBtn, root } from "./constants.js";
 import LoginModal from "../classes/LoginModal.js";
 import getInfoFromDB from "./getInfoFromDB.js";
 import createSearchForm from "./createSearchForm.js";
-import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
+// import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
+import createCardsForm from "./createCardsForm.js";
 import createModalVisit from "./creatvisit.js";
 
 export function createAutorizationWindow() {
@@ -48,9 +49,8 @@ function signIn(event) {
 			createVisitBtn.style.display = "block";
 
 			createSearchForm();
-
-			itemsAbsentAtDB();
-			createModalVisit();
+			createCardsForm();
+			createModalVisit(true);
 		} else {
 			span.textContent = 'Incorrect username or password';
 			span.style.color = "red";
