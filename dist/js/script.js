@@ -6,39 +6,24 @@
 // import LoginModal from "./classes/LoginModal.js";
 import { loginBtn, createVisitBtn, root } from "./utilities/constants.js";
 import { createAutorizationWindow } from "./utilities/autorization.js";
-import getInfoFromDB from "./utilities/getInfoFromDB.js";
-import pushInfoToDB from "./utilities/pushInfoToDB.js";
+// import getInfoFromDB from "./utilities/getInfoFromDB.js";
+// import pushInfoToDB from "./utilities/pushInfoToDB.js";
 import createSearchForm from "./utilities/createSearchForm.js";
-import itemsAbsentAtDB from "./utilities/itemsAbsentAtDB.js";
+import createCardsForm from "./utilities/createCardsForm.js";
 import createModalVisit from "./utilities/creatvisit.js";
 
-console.log("LS: ", localStorage.getItem("token"));
+// console.log("LS: ", localStorage.getItem("token"));
 if (localStorage.getItem("token") == null) {
-  console.log(loginBtn);
+  // console.log(loginBtn);
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-	console.log(createVisitBtn);
+	// console.log(createVisitBtn);
   createVisitBtn.style.display = 'block';
   createSearchForm();
-  // createCardsForm();
-	itemsAbsentAtDB();
-	createModalVisit();
+  createCardsForm();
+	createModalVisit(true);
 }
-
-// pushInfoToDB()
-// 	.then((data) => {
-// 		console.log(data);
-// 		getInfoFromDB().then((data) => {
-// 			console.log("data ", data);
-// 		})
-// 		.catch((err) => {
-// 			console.log(err.message);
-// 		});
-// 	})
-// 	.catch((err) => {
-// 		console.log(err.message);
-// 	});
 
 
 ///////////////////////////////////////////////////////////////////////////////////////

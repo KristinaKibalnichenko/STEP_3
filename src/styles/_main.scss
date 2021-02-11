@@ -87,12 +87,16 @@
 //     margin: 0 20px;
 // }
 
+#main {
+  position: relative;
+}
+
 .modal {
   display: none;
   margin: 10vh auto 0 auto;
   padding: 50px 20px;
   width: 40vw;
-  height: 100%;
+  // height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -192,7 +196,11 @@
   border-radius: 8px;
 }
 .modal.visit {
-  color: #724fac;
+  position: absolute;
+  left: calc((100vw - 40vw) / 2);
+  top: 220px;
+  margin: 0 auto;
+  background-color: #724fac;
   font-size: 20px;
   font-weight: bold;
   padding-left: 30px;
@@ -202,6 +210,23 @@
   background-color: #dff4f7;
 }
 
-// .selectoptions:first-child {
-//   color: green;
-// }
+.card-wrapper {
+  width: 257px;
+  margin: 5px 10px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(143, 213, 218);
+}
+
+.cardelem {
+  display: none;
+}
+
+.cardelem.defaultactive {
+  display: block;
+}
+
+.cardelem.active {
+  display: block;
+}
