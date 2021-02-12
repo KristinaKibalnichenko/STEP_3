@@ -23,7 +23,7 @@ export default class CreateCard {
         });
         const statusDoneBtn = this.createElement({
             elem: "button",
-            content: [this.content.status, "Exchange visit status to \"DONE\""],
+            content: [this.content.status, " Exchange visit status to \"DONE\""],
             id: "doneBtn",
             classes: ["cards-btn", "done"],
         });
@@ -38,12 +38,14 @@ export default class CreateCard {
             id: this.id,
             classes: ["card-wrapper"],
             content: [...contentelems, divBtnWrapper],
+            attr: "draggable", 
+            value: true,
         });
 
         return wrapper;
     }
   
-    createElement({ elem, id, classes, content, key }) {
+    createElement({ elem, id, classes, content, attr, value }) {
         const element = document.createElement(elem);
         if (id) {
           element.id = id;
@@ -54,8 +56,8 @@ export default class CreateCard {
         if (content) {
           element.append(...content);
         }
-        if (key) {
-            element.key = key;
+        if (attr) {
+            element.attr = value;
         }
         return element;
     }

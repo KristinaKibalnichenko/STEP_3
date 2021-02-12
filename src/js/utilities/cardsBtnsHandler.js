@@ -42,6 +42,7 @@ export default function cardsBtnsHandler(card, content) {
         if (doctorForm != null) {
             doctorForm.remove();
         }
+        
         createModalVisit(false, card.id, content);
     });
 }
