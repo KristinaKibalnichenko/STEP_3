@@ -11,7 +11,8 @@ export default function createNewCard(returnedid, contentin) {
         status: "Open",
         content: contentin,
 	}).render();
-    // console.log("new card: ", card, "-", returnedid, "-", contentin.status);
+    // card.draggable = true;
+    console.log("new card: ", card, "-", returnedid, "-", contentin.status);
 
     // const divCards = document.querySelector("#divCardsId");
     // divCards.append(card);

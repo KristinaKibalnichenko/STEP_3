@@ -5,8 +5,11 @@ import pushInfoToDB from "./pushInfoToDB.js";
 import createNewCard from "./createNewCard.js";
 import putInfoToDB from "./putInfoToDB.js";
 import appendCards from "./appendCards.js";
+import { root } from "./constants.js";
+import CreateCard from "../classes/CreateCard.js";
 
 export default function createDoctorForm(index, visitModal, id = '', content = {}, switcher = true) {
+    // console.log("card.id new__: ", id);
     console.log("visitModal", visitModal);
     const cardiologistForm = new VisitCardiologist({
         classes: ["modal", "visit"],
@@ -128,13 +131,21 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
                         console.log(err.message);
                     });
             } else {
+                const cards = Array.from(document.getElementsByClassName("card-wrapper"));
+                // console.log("cards arr: ", cards);
+                cards.forEach((card) => {
+                    card.remove();
+                });
+                
                 putInfoToDB(id, content)
                     .then((data) => {
                         console.log(data);
+                        
                     })
                     .catch((err) => {
                         console.log(err.message);
                     });
+
                 appendCards();
             }
             visitModal.classList.remove("active");

@@ -3,6 +3,7 @@ import VisitModal from "../classes/VisitModal.js";
 import createDoctorForm from "./createDoctorForm.js";
 
 export default function createModalVisit(switcher, id, content) {
+  // console.log("card.id__: ", id);
   if (switcher) {
     const visitModalForm = new VisitModal({
       id: "modalVisit",
@@ -54,12 +55,6 @@ export default function createModalVisit(switcher, id, content) {
     
     if (!itsmodal && !itsbtn && modalIsActive) {
       visitModal.classList.remove("active");
-      // if (!switcher) {
-      //   selectForm.hidden = false;
-      // }
     }
   });
-  // if (!switcher) {
-  //   selectForm.hidden = false;
-  // }
 }

@@ -16,15 +16,6 @@ export default function createCardsForm() {
         if (data.length == 0) {
             itemsAbsentAtDB();
         } else {
-            let arr2 = [];
-            data.forEach(({id}) => {
-                console.log(id);
-                arr2.push(document.getElementById(id));
-            });
-            let arr = document.getElementsByClassName("card-wrapper");
-            console.log("arr", arr);
-            console.log("arr2", arr2);
-            
             appendCards();
         }
     })
