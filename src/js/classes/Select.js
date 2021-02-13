@@ -10,10 +10,11 @@ export default class Select {
 	  this.options.forEach((optionId, index) => {
 		const opt = document.createElement("option");
 		opt.textContent = optionId;
+		opt.setAttribute("value", optionId);
 		if (index == 0) {
 			opt.setAttribute("disabled", "disabled");
 			opt.setAttribute("selected", "selected");
-		}
+		} 
 		selectList.appendChild(opt);
 	  });
 	  

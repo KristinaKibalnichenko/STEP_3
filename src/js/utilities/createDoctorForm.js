@@ -7,6 +7,8 @@ import putInfoToDB from "./putInfoToDB.js";
 import appendCards from "./appendCards.js";
 import { root } from "./constants.js";
 import CreateCard from "../classes/CreateCard.js";
+import cardsBtnsHandler from "./cardsBtnsHandler.js";
+import getInfoFromDB from "./getInfoFromDB.js";
 
 export default function createDoctorForm(index, visitModal, id = '', content = {}, switcher = true) {
     // console.log("card.id new__: ", id);
@@ -24,8 +26,8 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
 
     const doctorForm = document.querySelector('#doctorForm');
     
-    console.log("index: ", index);
-    console.log("switcher ", switcher);
+    // console.log("index: ", index);
+    // console.log("switcher ", switcher);
     if (switcher) {
         if (doctorForm != null) {
             doctorForm.remove();
@@ -35,7 +37,7 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
         };
     }
 
-    let pressure, massIndex, diseases, age, lastvisitdate;
+    let pressure, massIndex, diseases, cardioageage, therapistage, lastvisitdate;
     if (index === 1) {
         content.doctor = "Cardiologist";
         visitModal.append(cardiologistForm);
@@ -43,7 +45,7 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
         pressure = document.querySelector('#pressure');
         massIndex = document.querySelector('#massindex');
         diseases = document.querySelector('#diseases');
-        age = document.querySelector('#age');
+        cardioageage = document.querySelector('#cardioage');
     }
     if (index === 2) {
         content.doctor = "Dentist";
@@ -55,26 +57,28 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
         content.doctor = "Therapist";
         visitModal.append(therapistForm);
 
-        age = document.querySelector('#age');
+        therapistage = document.querySelector('#therapistage');
     }
 
     const title = document.querySelector('#purpose');
     const description = document.querySelector('#description');
     const fullName = document.querySelector('#patient');
     const priority = document.querySelector('.urgency');
+    console.log("priority ", priority);
+    console.log("fullName ", fullName);
 
     console.log("content change: ", content);
     if (!switcher) {
         [title.value, description.value, fullName.value] = [content.title, content.description, content.fullName];
-        // priority.value = content.priority.value;
+        priority.options.value = content.priority.value;
         if (index === 1) {
-            [pressure.value, massIndex.value, diseases.value, age.value] = [content.pressure, content.massIndex, content.diseases, content.age];
+            [pressure.value, massIndex.value, diseases.value, cardioageage.value] = [content.pressure, content.massIndex, content.diseases, content.cardioageage];
         }
         if (index === 2) {
             lastvisitdate.value = content.lastvisitdate;
         }
         if (index === 3) {
-            age.value = content.age;
+            therapistage.value = content.therapistage;
         }
     }
 
@@ -94,8 +98,8 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
             content.pressure = pressure.value;
             content.massIndex = massIndex.value;
             content.diseases = diseases.value;
-            content.age = age.value;
-            if (!pressure.validity.valid || !massIndex.validity.valid || !diseases.validity.valid || !age.validity.valid) {
+            content.cardioageage = cardioageage.value;
+            if (!pressure.validity.valid || !massIndex.validity.valid || !diseases.validity.valid || !cardioageage.validity.valid) {
                 flag = false;
             }
         }
@@ -106,8 +110,8 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
             }
         }
         if (index === 3) {
-            content.age = age.value;
-            if (!age.validity.valid) {
+            content.therapistage = therapistage.value;
+            if (!therapistage.validity.valid) {
                 flag = false;
             }
         }
@@ -120,33 +124,32 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
             if (switcher) {
                 pushInfoToDB(content)
                     .then((data) => {
-                        // console.log("push data: ", JSON.parse(data));
                         const returnedid = JSON.parse(data).id;
-                        // console.log("returnedid: ", returnedid);
-                        
-                        // console.log("Создаем новую карточку...");
                         createNewCard(returnedid, content);
                     })
                     .catch((err) => {
                         console.log(err.message);
                     });
             } else {
-                const cards = Array.from(document.getElementsByClassName("card-wrapper"));
-                // console.log("cards arr: ", cards);
-                cards.forEach((card) => {
-                    card.remove();
-                });
-                
                 putInfoToDB(id, content)
                     .then((data) => {
-                        console.log(data);
-                        
+                        const oldCard = document.getElementById(id);
+                        const returnedContent = JSON.parse(data).content;
+                        const newCard = new CreateCard ({
+                            id: id,
+                            content: returnedContent,
+                        }).render();
+                        document.getElementById("divCardsId").replaceChild(newCard, oldCard);
+                        if (content.status == "Done") {
+                            const statusDoneBtn = newCard.getElementsByClassName("cards-btn done")[0];
+                            statusDoneBtn.disabled = true;
+                        }
+                        cardsBtnsHandler(newCard, returnedContent);
                     })
                     .catch((err) => {
                         console.log(err.message);
                     });
-
-                appendCards();
+                // appendCards();
             }
             visitModal.classList.remove("active");
         }

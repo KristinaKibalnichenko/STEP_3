@@ -7,10 +7,10 @@ export default function cardsBtnsHandler(card, content) {
     const showMoreBtn = card.getElementsByClassName("cards-btn showMore")[0];
     const statusDoneBtn = card.getElementsByClassName("cards-btn done")[0];
     
-    if (content.status == "Done") {
-        statusDoneBtn.disabled = true;
-    }
-    divCards.append(card);
+    // if (content.status == "Done") {
+    //     statusDoneBtn.disabled = true;
+    // }
+    // divCards.append(card);
     
     if (content.status == "Open") {
         statusDoneBtn.addEventListener("click", function () {

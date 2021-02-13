@@ -61,6 +61,7 @@ export default class VisitDoctor {
       required: true,
       classes: ["form-select", "urgency"],
       options: ["Priority", "High", "Normal", "Low"],
+      // value: ["High", "Normal", "Low"],
     }).render();
 
     return [purposeVisit, shortDescription, patient, urgency];

@@ -23,7 +23,8 @@ export default class CreateCard {
         });
         const statusDoneBtn = this.createElement({
             elem: "button",
-            content: [this.content.status, " Exchange visit status to \"DONE\""],
+            // content: [this.content.status, " Exchange visit status to \"DONE\""],
+            content: [this.content.status, " Exchange status to \"DONE\""],
             id: "doneBtn",
             classes: ["cards-btn", "done"],
         });
