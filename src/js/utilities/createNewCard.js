@@ -12,9 +12,9 @@ export default function createNewCard(returnedid, contentin) {
         content: contentin,
 	}).render();
     // card.draggable = true;
-    console.log("new card: ", card, "-", returnedid, "-", contentin.status);
+    // console.log("new card: ", card, "-", returnedid, "-", contentin.status);
 
-    // const divCards = document.querySelector("#divCardsId");
-    // divCards.append(card);
+    const divCards = document.querySelector("#divCardsId");
+    divCards.append(card);
     cardsBtnsHandler(card, contentin);
 }

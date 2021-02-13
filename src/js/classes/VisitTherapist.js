@@ -10,9 +10,9 @@ export default class VisitTherapist extends VisitDoctor {
 
     const age = new Input({
       type: "number",
-      name: "age",
+      name: "therapistage",
       required: true,
-      id: "age",
+      id: "therapistage",
       classes: ["inputs"],
       placeholder: "Возраст пациента",
       errorText: "Поле не валидно",

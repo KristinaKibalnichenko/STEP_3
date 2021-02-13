@@ -7,7 +7,7 @@ export default function createCardsForm() {
     const divCards = document.createElement("div");
     divCards.id = "divCardsId";
     divCards.style.cssText = `display: flex; flex-wrap: wrap; margin: 20px 150px; padding: 50px 30px; 
-                              background-color: lightgrey; border-radius: 15px`;
+                              background-color: lightgrey; border-radius: 15px; justify-content: center`;
 
     root.append(divCards);
     getInfoFromDB()

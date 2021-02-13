@@ -43,9 +43,9 @@ export default class VisitCardiologist extends VisitDoctor {
 
     const age = new Input({
       type: "number",
-      name: "age",
+      name: "cardioage",
       required: true,
-      id: "age",
+      id: "cardioage",
       classes: ["inputs"],
       placeholder: "Возраст пациента",
       errorText: "Поле не валидно",
