@@ -1,18 +1,12 @@
 import CreateCard from "../classes/CreateCard.js";
-import putInfoToDB from "./putInfoToDB.js";
-import createModalVisit from "./creatvisit.js";
 import cardsBtnsHandler from "./cardsBtnsHandler.js";
 import getInfoFromDB from "./getInfoFromDB.js";
-import { root } from "./constants.js";
 
 export default function appendCards() {
     const divCards = document.getElementById("divCardsId");
     getInfoFromDB()
         .then((data) => {
-            data.forEach(({id, content}) => {
-                // console.log("id", id);
-                // console.log("content", content);
-            
+            data.forEach(({id, content}) => {            
                 const card = new CreateCard ({
                     id: id,
                     content: content,

@@ -1,9 +1,6 @@
 import { loginBtn, createVisitBtn, root } from "./constants.js";
-// import Modal from "../classes/Modal.js";
 import LoginModal from "../classes/LoginModal.js";
-import getInfoFromDB from "./getInfoFromDB.js";
 import createSearchForm from "./createSearchForm.js";
-// import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
 import createCardsForm from "./createCardsForm.js";
 import createModalVisit from "./creatvisit.js";
 
@@ -14,7 +11,6 @@ export function createAutorizationWindow() {
 	});
 	loginForm.createFormElements();
 	loginForm.modal.style.width = "50vw";
-	// console.log("loginForm ", loginForm);
 	root.append(loginForm.modal);
 	loginBtn.addEventListener("click", function() {
 		loginForm.openModal();
@@ -37,8 +33,8 @@ function signIn(event) {
 	autorization(personalData)
 	.then((data) => {
 		token = data;
-		console.log("status: ", status);
-		console.log("token: ", token);
+		// console.log("status: ", status);
+		// console.log("token: ", token);
 		const loginForm = document.getElementById('modalLogin');
 		const span = document.getElementById('addinfo');
 		let flag = true;

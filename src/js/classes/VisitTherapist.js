@@ -24,7 +24,7 @@ export default class VisitTherapist extends VisitDoctor {
       name: "submit", 
       id: "submitvisit", 
       classes: ["inputs", "submit"], 
-      value: "Create"}).render();
+      value: "SUBMIT"}).render();
 
     return [...doctorFormElements, age, submit];
   }
