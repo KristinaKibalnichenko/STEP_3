@@ -5,7 +5,10 @@ export default class VisitDentist extends VisitDoctor {
   constructor({ id, classes }) {
     super({ id, classes });
   }
+
   createFormElements() {
+    const doctorFormElements = super.createFormElements();
+    
     const lastVisit = new Input({
       type: "date",
       name: "date",
@@ -16,6 +19,14 @@ export default class VisitDentist extends VisitDoctor {
       errorText: "Поле не валидно",
       value: "",
     }).render();
-    return [lastVisit];
+    
+    const submit = new Input({
+      type: "submit", 
+      name: "submit", 
+      id: "submitvisit", 
+      classes: ["inputs", "submit"], 
+      value: "Create"}).render();
+
+    return [...doctorFormElements, lastVisit, submit];
   }
 }

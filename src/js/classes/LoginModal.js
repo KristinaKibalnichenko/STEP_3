@@ -1,38 +1,62 @@
 import Modal from "./Modal.js";
+import Form from "./Form.js";
 import Input from "./Input.js";
 
 export default class LoginModal extends Modal {
 	constructor({ id, classes }) {
 		super ({ id, classes });
-	}
-	createFormElements () {	
-		const login = new Input({
-			type: "email", 
-			name: "login", 
-			required: true, 
-			id: "login", 
-			classes: ["inputs"], 
-			placeholder: "Email address", 
-			errorText: "Поле не валидно",
-			value: ""}).render();
+    }
+    createForm(formElements = []) {
+        const form = new Form({
+            id: "register-form",
+            classes: ["formclasses"],
+            action: "",
+        }).render();
+        form.append(...formElements);
+        return [form];
+    }
 
-		const password = new Input({
-			type: "password", 
-			name: "password", 
-			required: true, 
-			id: "password", 
-			classes: ["inputs"], 
-			placeholder: "Password", 
-			errorText: "Поле не валидно",
-			value: ""}).render();
+    createFormElements () {	
+        const additionalInfo = this.createElement({
+            elem: "div",
+            content: "",
+            classes: ["addinfo"],
+            id: "addinfo",
+          });
 
-		const submit = new Input({
-			type: "submit", 
-			name: "submit", 
-			id: "submit", 
-			classes: ["inputs", "submit"], 
-			value: "SUBMIT"}).render();
+        const login = new Input({
+            type: "email", 
+            name: "login", 
+            required: true, 
+            id: "login", 
+            classes: ["inputs"], 
+            placeholder: "Email address", 
+            errorText: "Поле не валидно",
+            value: ""}).render();
 
-		return [login, password, submit];
-	}
+        const password = new Input({
+            type: "password", 
+            name: "password", 
+            required: true, 
+            id: "password", 
+            classes: ["inputs"], 
+            placeholder: "Password", 
+            errorText: "Поле не валидно",
+            value: ""}).render();
+
+        const submit = new Input({
+            type: "submit", 
+            name: "submit", 
+            id: "submit", 
+            classes: ["inputs", "submit"], 
+            value: "SUBMIT"}).render();
+
+            return [additionalInfo, login, password, submit];
+            // return this.createForm([login, password, submit]);
+    }
+
+    closeModal() {
+        super.closeModal();
+        document.getElementById("addinfo").textContent = "";
+    }
 }

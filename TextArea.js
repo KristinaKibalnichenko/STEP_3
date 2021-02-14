@@ -1,5 +1,6 @@
 export default class TextArea {
-  constructor({ name, required, id, classes, placeholder, value }) {
+  constructor({ type, name, required, id, classes, placeholder, value }) {
+    this.type = type;
     this.name = name;
     this.required = required;
     this.id = id;
@@ -9,6 +10,7 @@ export default class TextArea {
   }
   render() {
     let textarea = document.createElement("textarea");
+    textarea.type = this.type;
     textarea.name = this.name;
     textarea.required = this.required;
     textarea.id = this.id;

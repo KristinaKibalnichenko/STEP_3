@@ -1,32 +1,41 @@
+.work-table {
+  // background: url(../img/1382444099.jpg);
+  background-color: #a1e5ee;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#main {
+  position: relative;
+}
+
 .modal {
-    display: none;
-    margin: 25vh auto 0 auto;
-    padding: 50px 20px;
-    width: 30vw;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+  display: none;
+  margin: 10vh auto 0 auto;
+  padding: 50px 20px;
+  width: 40vw;
+  // height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  border: 2px solid rgba(240, 23, 23, 0.1);
 }
-
 .addinfo {
-    display: none;
+  display: none;
 }
-
 .modal.active {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
-
 .modal.login .addinfo {
-    display: block;
-    height: 20px;
+  display: block;
+  height: 20px;
 }
-
 .modal.login {
-    padding: 50px 20px 30px;
+  padding: 50px 20px 30px;
 }
-
 /* Modal Content */
 // .modal-content {
 //     margin: auto;
@@ -34,44 +43,135 @@
 //     width: 100%;
 // }
 .modal-content {
-    color: rgb(2, 95, 64);
-    background-color: #a1e5ee;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 25%;
+  color: rgb(2, 95, 64);
+  background-color: #a1e5ee;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%;
 }
-
 /* The Close Button */
 .close {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    color: rgb(88, 88, 88);
-    // float: right;
-    font-size: 28px;
-    font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  color: rgb(88, 88, 88);
+  // float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
-
-.inputs {
-    margin: 10px;
-    padding: 10px;
-    width: 230px;
+.inputs,
+.textarea {
+  margin: 10px;
+  padding: 10px;
+  width: 528px;
+  font-size: 20px;
+  border-radius: 8px;
+  font-family: $font-stack;
+  border: 2px solid #817d7d;
 }
-
 .inputs.submit {
-    border-radius: 8px;
-    font-weight: bold;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 200px;
+}
+.inputs:focus {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+.inputs.submit:hover {
+  cursor: pointer;
+  background-color: rgb(143, 213, 218);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+.search {
+  margin: 0 20px;
+}
+.status,
+.priority {
+  margin: 10px;
+  padding: 10px;
+  width: 150px;
+  font-size: 22px;
+  cursor: pointer;
+  border: 2px solid #817d7d;
+  border-radius: 8px;
+}
+.status:focus,
+.priority:focus {
+  background-color: #dff4f7;
+}
+.form-select {
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  font-size: 22px;
+  cursor: pointer;
+  border: 2px solid #817d7d;
+  border-radius: 8px;
+}
+.modal.visit {
+  position: absolute;
+  left: calc((100vw - 40vw) / 2);
+  top: 220px;
+  margin: 0 auto;
+  background-color: #724fac;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 30px;
+}
+.textarea:focus,
+.inputs:focus {
+  background-color: #dff4f7;
 }
 
-.inputs.submit:hover {
-    cursor: pointer;
-    background-color: rgb(167, 167, 167);
+.card-wrapper {
+  width: 257px;
+  margin: 5px 10px;
+  padding: 15px;
+  border: 2px solid #817d7d;
+  border-radius: 5px;
+  background-color: #ccf7f7;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 70px;
+}
+
+.cardelem {
+  display: none;
+}
+
+.cardelem.defaultactive {
+  display: block;
+}
+
+.cardelem.active {
+  display: block;
+}
+
+.cards-btn {
+  background-color: rgb(143, 213, 218);
+  border: 2px solid #817d7d;
+  border-radius: 5px;
+  position: absolute;
+}
+.edit {
+  padding: 5px 15px;
+  bottom: 50px;
+}
+
+// .showMore,
+.done {
+  padding: 5px;
+  bottom: 10px;
+}
+.showMore {
+  bottom: 50px;
+  padding: 5px 10px;
+  margin: 0 5px 0 80px;
 }

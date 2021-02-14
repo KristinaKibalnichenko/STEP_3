@@ -8,8 +8,12 @@ import { loginBtn, createVisitBtn, root } from "./utilities/constants.js";
 import { createAutorizationWindow } from "./utilities/autorization.js";
 import getInfoFromDB from "./utilities/getInfoFromDB.js";
 import pushInfoToDB from "./utilities/pushInfoToDB.js";
-import itemsAbsentAtDB from "./utilities/itemsAbsentAtDB.js";
+import createSearchForm from "./utilities/createSearchForm.js";
+import createCardsForm from "./utilities/createCardsForm.js";
 import createModalVisit from "./utilities/creatvisit.js";
+// import dragAndDrop from "./utilities/dragAndDrop.js";
+
+// moveCard();
 
 console.log("LS: ", localStorage.getItem("token"));
 if (localStorage.getItem("token") == null) {
@@ -17,50 +21,54 @@ if (localStorage.getItem("token") == null) {
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-	console.log(createVisitBtn);
-	createVisitBtn.style.display = 'block';
-	itemsAbsentAtDB();
-	createModalVisit();
+  console.log(createVisitBtn);
+  createVisitBtn.style.display = "block";
+  createSearchForm();
+  createCardsForm();
+  createModalVisit();
 }
-
-// pushInfoToDB()
-// 	.then((data) => {
-// 		console.log(data);
-// 		getInfoFromDB().then((data) => {
-// 			console.log("data ", data);
-// 		})
-// 		.catch((err) => {
-// 			console.log(err.message);
-// 		});
-// 	})
-// 	.catch((err) => {
-// 		console.log(err.message);
-// 	});
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
-function createSearchForm() {
-  const form = document.createElement("form");
-  const search = document.createElement("input");
-  const status = document.createElement("select");
-  const priority = document.createElement("select");
-  const submit = document.createElement("input");
-
-  form.action = "#";
-  form.id = "searchForm";
-
-  search.type = "text";
-  search.id = "searchField";
-
-  status.id = "statusField";
-
-  priority.id = "priorityField";
-
-  submit.type = "submit";
-  submit.value = "Search";
-  submit.id = "submitField";
-}
 
 // alert(response.headers.get('Content-Type'));
 
 // withCredentials: true;  о токене
+
+const cardDrag = document.getElementsByClassName("card-wrapper");
+cardDrag.onmousedown = function (e) {
+  let coords = getCoords(cardDrag);
+  let shiftX = e.pageX - coords.left;
+  let shiftY = e.pageY - coords.top;
+
+  cardDrag.style.position = "absolute";
+  document.body.appendChild(cardDrag);
+  moveAt(e);
+
+  cardDrag.style.zIndex = 1000; // над другими элементами
+
+  function moveAt(e) {
+    cardDrag.style.left = e.pageX - shiftX + "px";
+    cardDrag.style.top = e.pageY - shiftY + "px";
+  }
+
+  document.onmousemove = function (e) {
+    moveAt(e);
+  };
+
+  cardDrag.onmouseup = function () {
+    document.onmousemove = null;
+    cardDrag.onmouseup = null;
+  };
+};
+
+cardDrag.ondragstart = function () {
+  return false;
+};
+
+function getCoords(elem) {
+  const box = elem.getBoundingClientRect();
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset,
+  };
+}
