@@ -7,8 +7,24 @@ export default class CreateCard {
     }
     render() {
         const contentelems = this.createElements() || "";
-        // console.log("CreateCard id: ", this.id);
-        // console.log("CreateCard content: ", this.content);
+        const editBtnEdit = this.createElement({
+            elem: "button",
+            content: "Edit card",
+            // id: "editBtnEdit",
+            classes: ["editBtns", "editBtnEdit"],
+        });
+        const editBtnDelete = this.createElement({
+            elem: "button",
+            content: "Delete card",
+            // id: "editBtnDelete",
+            classes: ["editBtns", "editBtnDelete"],
+        });
+        const addBtnWrapper = this.createElement({
+            elem: "div",
+            content: [editBtnEdit, editBtnDelete],
+            // id: "cards-btn--additional-wrapper",
+            classes: ["cards-btn--additional-wrapper"],
+        });
         const editBtn = this.createElement({
             elem: "button",
             content: "EDIT",
@@ -23,8 +39,8 @@ export default class CreateCard {
         });
         const statusDoneBtn = this.createElement({
             elem: "button",
-            // content: [this.content.status, " Exchange visit status to \"DONE\""],
-            content: [this.content.status, " Exchange status to \"DONE\""],
+            content: ["Exchange status to \"DONE\""],
+            // content: [this.content.status, " Exchange status to \"DONE\""],
             id: "doneBtn",
             classes: ["cards-btn", "done"],
         });
@@ -38,7 +54,7 @@ export default class CreateCard {
             elem: "div",
             id: this.id,
             classes: ["card-wrapper"],
-            content: [...contentelems, divBtnWrapper],
+            content: [...contentelems, addBtnWrapper, divBtnWrapper],
             attr: "draggable", 
             value: true,
         });

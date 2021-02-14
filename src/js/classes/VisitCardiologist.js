@@ -57,7 +57,7 @@ export default class VisitCardiologist extends VisitDoctor {
       name: "submit", 
       id: "submitvisit", 
       classes: ["inputs", "submit"], 
-      value: "Create"}).render();
+      value: "SUBMIT"}).render();
 
     return [...doctorFormElements, pressure, massIndex, heartDiseases, age, submit];
   }

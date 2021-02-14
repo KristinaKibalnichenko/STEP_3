@@ -1,3 +1,5 @@
+import clearModalFields from "../utilities/clearModalFields.js";
+
 export default class Modal {
     constructor({ id, classes }) {
       this.id = id;
@@ -50,19 +52,7 @@ export default class Modal {
     }
     closeModal() {
       this.modal.classList.remove("active");
-      
-      const forms = Object.values(this.modal.getElementsByTagName("form"));
-      forms.forEach((form) => {
-        Object.values(form.children).forEach((element) => {
-          // console.log("type:", element.getAttribute("type"));
-          if (element.getAttribute("type") != "submit") {
-            element.value = "";
-          }
-          if (element.tagName === "SELECT") {
-            element.value = element.firstElementChild.value;
-          }
-        });
-      });
+      clearModalFields(this.modal);
     }
   }
   

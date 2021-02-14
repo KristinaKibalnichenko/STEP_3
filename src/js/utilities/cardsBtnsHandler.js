@@ -1,16 +1,13 @@
 import putInfoToDB from "./putInfoToDB.js";
+import getInfoFromDB from "./getInfoFromDB.js";
+import deleteInfoFromDB from "./deleteInfoFromDB.js";
 import createModalVisit from "./creatvisit.js";
 
 export default function cardsBtnsHandler(card, content) {
-    const divCards = document.querySelector("#divCardsId");
+    // const divCards = document.querySelector("#divCardsId");
     const editBtn = card.getElementsByClassName("cards-btn edit")[0];
     const showMoreBtn = card.getElementsByClassName("cards-btn showMore")[0];
     const statusDoneBtn = card.getElementsByClassName("cards-btn done")[0];
-    
-    // if (content.status == "Done") {
-    //     statusDoneBtn.disabled = true;
-    // }
-    // divCards.append(card);
     
     if (content.status == "Open") {
         statusDoneBtn.addEventListener("click", function () {
@@ -27,22 +24,41 @@ export default function cardsBtnsHandler(card, content) {
     }
 
     showMoreBtn.addEventListener("click", function () {
-        // console.log("card", card);
         const cardElems = Array.from(card.getElementsByClassName("cardelem"));
-        
         for (let index = 1; index < cardElems.length; index++) {
-            // console.log("cardElems", cardElems);
             cardElems[index].classList.toggle("active");
         }
     });
 
     editBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        const doctorForm = document.querySelector('#doctorForm');
-        if (doctorForm != null) {
-            doctorForm.remove();
-        }
-        
-        createModalVisit(false, card.id, content);
+        const addBtnsWrapper = card.getElementsByClassName("cards-btn--additional-wrapper")[0];
+        addBtnsWrapper.classList.toggle("active");
+        const editBtnEdit = card.getElementsByClassName("editBtnEdit")[0];
+        const editBtnDelete = card.getElementsByClassName("editBtnDelete")[0];
+
+        editBtnEdit.addEventListener("click", function (e) {
+            e.stopPropagation();
+            addBtnsWrapper.classList.toggle("active");
+            const doctorForm = document.querySelector('#doctorForm');
+            if (doctorForm != null) {
+                doctorForm.remove();
+            }
+            createModalVisit(false, card.id, content);
+        });
+
+        editBtnDelete.addEventListener("click", function (e) {
+            e.stopPropagation();
+            addBtnsWrapper.classList.toggle("active");
+            deleteInfoFromDB(card.id)
+                .then((data) => {})
+                .catch((err) => {
+                    console.log(err.message);
+                });
+            // console.log("card", card);
+            card.remove();
+            // getInfoFromDB().then((data) => {
+            //         console.log("data ", data);
+            //     });
+        });
     });
 }

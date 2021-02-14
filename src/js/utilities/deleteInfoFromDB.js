@@ -1,8 +1,8 @@
 // import getInfoFromDB from "./getInfoFromDB.js";
 
-export default function deleteInfoFromDB() {
+export default function deleteInfoFromDB(id) {
 	let token = localStorage.getItem("token");
-	return fetch('https://ajax.test-danit.com/api/cards/7917', {
+	return fetch(`https://ajax.test-danit.com/api/cards/${id}`, {
 		method: "DELETE",
 		headers: {
 			'Authorization': `Bearer ${token}`,
@@ -10,19 +10,9 @@ export default function deleteInfoFromDB() {
 		},
 	}).then((response) => {
 		response.text();
-		console.log("Deleted!!! Promise passed");
+		console.log(`Card with ID=${id} has deleted!!!`);
 	})
 	.catch((err) => {
 		console.log("message of Delete request: ", err.message);
 	});
 }
-// deleteInfoFromDB()
-// 	.then((data) => {
-// 		console.log("Ответ об удалении: ", data);
-// 		getInfoFromDB().then((data) => {
-// 			console.log("data ", data);
-// 		});
-// 	})
-// 	.catch((err) => {
-// 		console.log(err.message);
-// 	});

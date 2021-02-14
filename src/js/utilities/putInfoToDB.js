@@ -1,8 +1,5 @@
-import getInfoFromDB from "./getInfoFromDB.js";
-
 export default function putInfoToDB(id, content) {
 	let token = localStorage.getItem("token");
-	console.log("token for put: ", token);
 	return fetch(`https://ajax.test-danit.com/api/cards/${id}`, {
 		method: "PUT",
 		body: JSON.stringify(content),

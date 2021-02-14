@@ -1,9 +1,9 @@
 import { createVisitBtn, root } from "./constants.js";
 import VisitModal from "../classes/VisitModal.js";
 import createDoctorForm from "./createDoctorForm.js";
+import clearModalFields from "./clearModalFields.js";
 
 export default function createModalVisit(switcher, id, content) {
-  // console.log("card.id__: ", id);
   if (switcher) {
     const visitModalForm = new VisitModal({
       id: "modalVisit",
@@ -11,12 +11,11 @@ export default function createModalVisit(switcher, id, content) {
     });
     const visitModal = visitModalForm.modal;
     root.append(visitModal);
-    console.log("visitModalForm.modal", visitModalForm);
+    // console.log("visitModalForm.modal", visitModalForm);
     createVisitBtn.addEventListener("click",  function (e) {
       e.stopPropagation();
       visitModalForm.openModal();
       const selectForm = document.querySelector("#visit-form");
-      // console.log("selectForm create visit", selectForm);
       selectForm.style.display = "block";
       const select = document.querySelector(".form-select");
     
@@ -29,7 +28,6 @@ export default function createModalVisit(switcher, id, content) {
     const visitModal = document.getElementById("modalVisit");
     visitModal.classList.add("active");
     const selectForm = document.querySelector("#visit-form");
-    // console.log("selectForm ", selectForm);
     selectForm.style.display = "none";
     
     let index;
@@ -55,6 +53,7 @@ export default function createModalVisit(switcher, id, content) {
     
     if (!itsmodal && !itsbtn && modalIsActive) {
       visitModal.classList.remove("active");
+      clearModalFields(visitModal);
     }
   });
 }
