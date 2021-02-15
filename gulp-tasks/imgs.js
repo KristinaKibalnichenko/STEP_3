@@ -8,8 +8,8 @@ const imgs = () =>
         .pipe(webp({
             quality: 70
         }))
-        // .pipe(dest("./dist/img/"))
-        // .pipe(src("./src/img/**/*.{jpg,png,svg,gif,ico,webp}"))
+        .pipe(dest("./dist/img/"))
+        .pipe(src("./src/img/**/*.{jpg,png,svg,gif,ico,webp}"))
         .pipe(imagemin({
             interlaced: true,
             progressive: true,

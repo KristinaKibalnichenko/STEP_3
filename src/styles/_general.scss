@@ -4,13 +4,9 @@
     box-sizing: border-box;
 }
 
+ul[class],
 ol[class] {
     margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-ul[class] {
     padding: 0;
     list-style: none;
 }
@@ -26,11 +22,3 @@ a {
     width: 100%;
     background-color: $primary-bg-color;
 }
-
-// .container {
-//     margin: 0 auto;
-//     min-width: 320px;
-//     width: 100%;
-//     max-width: 1200px;
-//     padding: 0 10px;
-// }
