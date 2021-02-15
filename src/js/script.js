@@ -11,6 +11,7 @@ import { createAutorizationWindow } from "./utilities/autorization.js";
 import createSearchForm from "./utilities/createSearchForm.js";
 import createCardsForm from "./utilities/createCardsForm.js";
 import createModalVisit from "./utilities/creatvisit.js";
+// import { cardFilter } from "./utilities/cardsFilter.js";
 // import VisitsPalette from "./classes/CardsDesk.js";
 
 // console.log("LS: ", localStorage.getItem("token"));
@@ -19,13 +20,12 @@ if (localStorage.getItem("token") == null) {
   loginBtn.style.display = "block";
   createAutorizationWindow();
 } else {
-	// console.log(createVisitBtn);
-  createVisitBtn.style.display = 'block';
+  // console.log(createVisitBtn);
+  createVisitBtn.style.display = "block";
   createSearchForm();
   createCardsForm();
-	createModalVisit(true);
+  createModalVisit(true);
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
