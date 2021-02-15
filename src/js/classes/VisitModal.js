@@ -20,7 +20,7 @@ export default class VisitModal extends Modal {
     const select = new Select({
       id: "chooseDoctor",
       classes: ["form-select"],
-      options: ["Выберите врача: ", "Кардиолог", "Стоматолог", "Терапевт"],
+      options: ["Choose a doctor: ", "Cardiologist", "Dentist", "Therapist"],
     }).render();
     return [select];
   }

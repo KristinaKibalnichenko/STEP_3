@@ -7,6 +7,6 @@ const { imgs } = require("./gulp-tasks/imgs");
 const { serv } = require("./gulp-tasks/serv");
 const { watch } = require("./gulp-tasks/watch");
 
-exports.default = series(clean, parallel(serv, watch, series(indexes, styles, scripts, imgs)));
+exports.default = series(clean, parallel(serv, watch, series(imgs, indexes, styles, scripts)));
 exports.build = series(clean, series(indexes, styles, scripts, imgs));
 exports.dev = parallel(serv, watch, series(indexes, styles, scripts));

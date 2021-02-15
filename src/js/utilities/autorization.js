@@ -28,13 +28,10 @@ function signIn(event) {
 		"email": email.value,
 		"password": password.value,
 	};
-	// console.log(email.value, password.value);
 
 	autorization(personalData)
 	.then((data) => {
 		token = data;
-		// console.log("status: ", status);
-		// console.log("token: ", token);
 		const loginForm = document.getElementById('modalLogin');
 		const span = document.getElementById('addinfo');
 		let flag = true;

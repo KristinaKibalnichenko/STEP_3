@@ -5,13 +5,9 @@
           box-sizing: border-box;
 }
 
+ul[class],
 ol[class] {
   margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-ul[class] {
   padding: 0;
   list-style: none;
 }
@@ -25,7 +21,7 @@ a {
   margin: 0 auto;
   font-family: "Montserrat", sans-serif;
   width: 100%;
-  background-color: #f8f4f4;
+  background-color: #f5f5f5;
 }
 
 .header-wrapper {
@@ -45,7 +41,7 @@ a {
 #enter,
 #createVisit {
   display: none;
-  text-transform: uppercaseenter;
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 24px;
   -webkit-box-align: center;
@@ -61,19 +57,13 @@ a {
   cursor: pointer;
 }
 
-ul[class],
-ol[class] {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 .work-table {
-  background: url(../img/bg.jpg);
+  background: url(../img/bg.webp);
+  background-color: #a1e5ee;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
-  height: 1200px;
+  min-height: 130vh;
 }
 
 #main {
@@ -83,7 +73,7 @@ ol[class] {
 .modal {
   display: none;
   margin: 10vh auto 0 auto;
-  padding: 50px 20px;
+  padding: 20px;
   width: 40vw;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.1);
@@ -109,18 +99,16 @@ ol[class] {
   padding: 50px 20px 30px;
 }
 
-/* Modal Content */
-
-.modal-content {
-  color: #025f40;
-  background-color: #a1e5ee;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 25%;
+.modal.visit {
+  position: absolute;
+  left: calc((100vw - 40vw) / 2);
+  top: 232px;
+  margin: 0 auto;
+  background-color: rgba(50, 105, 109, 0.8);
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 30px;
 }
-
-/* The Close Button */
 
 .close {
   position: absolute;
@@ -183,7 +171,9 @@ ol[class] {
 }
 
 .status:focus,
-.priority:focus {
+.priority:focus,
+.textarea:focus,
+.inputs:focus {
   background-color: #dff4f7;
 }
 
@@ -195,22 +185,6 @@ ol[class] {
   cursor: pointer;
   border: 2px solid #817d7d;
   border-radius: 8px;
-}
-
-.modal.visit {
-  position: absolute;
-  left: calc((100vw - 40vw) / 2);
-  top: 220px;
-  margin: 0 auto;
-  background-color: #724fac;
-  font-size: 20px;
-  font-weight: bold;
-  padding-left: 30px;
-}
-
-.textarea:focus,
-.inputs:focus {
-  background-color: #dff4f7;
 }
 
 .cardelem {
@@ -229,13 +203,17 @@ ol[class] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   bottom: 10px;
+  left: 0;
 }
 
 .cards-btn--additional-wrapper {
@@ -246,13 +224,17 @@ ol[class] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   opacity: 0;
   -webkit-transition: opacity 1.5s;
   -o-transition: opacity 1.5s;
   transition: opacity 1.5s;
   position: absolute;
-  bottom: 89px;
-  left: 21px;
+  bottom: 128.5px;
+  left: 0;
+  width: 100%;
 }
 
 .cards-btn--additional-wrapper.active {
@@ -263,25 +245,25 @@ ol[class] {
   width: 89.5px;
 }
 
-.cards-btn.done {
-  margin: 10px 8px;
-}
-
 .cards-btn,
 .editBtns {
   background-color: #8fd5da;
   border: 2px solid #817d7d;
   border-radius: 5px;
-  margin: 0 8px;
   padding: 5px 8px;
+  width: 85%;
 }
 
-.editBtns {
-  background-color: #dafafc;
+.cards-btn {
+  margin-bottom: 10px;
 }
 
 .cards-btn:hover {
   color: #66750d;
+}
+
+.editBtns {
+  background-color: #dafafc;
 }
 
 .editBtns:hover {
@@ -290,18 +272,17 @@ ol[class] {
 
 .card-wrapper {
   width: 300px;
-  margin: 5px 10px;
   padding: 15px;
   border: 2px solid #817d7d;
   border-radius: 5px;
-  background-color: #ccf7f7;
+  background-color: rgba(204, 247, 247, 0.7);
   position: relative;
-  padding-bottom: 140px;
+  padding-bottom: 200px;
   cursor: move;
 }
 
 .card-wrapper:hover {
-  background-color: #03d5da;
+  background-color: rgba(50, 105, 109, 0.7);
   -webkit-transition: background-color 0.5s;
   -o-transition: background-color 0.5s;
   transition: background-color 0.5s;
@@ -309,4 +290,31 @@ ol[class] {
 
 .card-wrapper.selected {
   opacity: 0.5;
+}
+
+.footer-text {
+  background-color: #e0ffff;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+  color: #000;
+  padding: 47px 0;
+  margin: 0 auto;
+}
+
+.footer-text--color {
+  font-weight: 700;
+  color: #18CFAB;
+  padding-right: 15px;
+  position: relative;
+}
+
+.footer-text--color::after {
+  content: '';
+  position: absolute;
+  bottom: 1.5px;
+  right: 7.5px;
+  width: 2px;
+  height: 24px;
+  background-color: #000;
 }
