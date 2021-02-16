@@ -11,7 +11,7 @@ export default function appendCards() {
                     id: id,
                     content: content,
                 }).render();
-                card.draggable = true;
+                // card.draggable = true;
                 // console.log("card: ", card, "-", card.id, "-", content);
 
                 if (content.status == "Done") {

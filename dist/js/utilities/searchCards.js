@@ -13,12 +13,8 @@ export default function searchCards(event) {
 
   getInfoFromDB()
     .then((data) => {
-      // const newCards = Array.from(document.querySelectorAll(".card-wrapper"));
-
       if (data.length !== 0) {
-        // console.log(data);
         const result = filterCards(data);
-        // console.log(newCards);
         result.forEach((item) => {
           cards.forEach((elem) => {
             if (item.id == elem.id) {
