@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-  min-height: 130vh;
+  min-height: 1200px;
 }
 
 #main {
@@ -42,7 +42,7 @@
 .modal.visit {
   position: absolute;
   left: calc((100vw - 40vw) / 2);
-  top: 232px;
+  top: 192px;
   margin: 0 auto;
   background-color: rgba(50, 105, 109, 0.8);
   font-size: 16px;
