@@ -22,6 +22,8 @@ export default class VisitModal extends Modal {
       classes: ["form-select"],
       options: ["Choose a doctor: ", "Cardiologist", "Dentist", "Therapist"],
     }).render();
+    select.options[0].setAttribute("disabled", "disabled");
+    select.options[0].setAttribute("selected", "selected");
     return [select];
   }
 

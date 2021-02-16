@@ -19,7 +19,6 @@ export default function createSearchForm() {
     const searchField = new Input({
         type: "text", 
         name: "inpurSearch", 
-        // required: true, 
         id: "inpurSearch", 
         classes: ["search", "inputs"], 
         placeholder: "Search by title or description", 
