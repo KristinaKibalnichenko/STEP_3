@@ -2,7 +2,7 @@ import Form from "../classes/Form.js";
 import Input from "../classes/Input.js";
 import Select from "../classes/Select.js";
 import { root } from "./constants.js";
-import getInfoFromDB from "./getInfoFromDB.js";
+import searchCards from "./searchCards.js";
 
 export default function createSearchForm() {
     const divSearch = document.createElement("div");
@@ -27,42 +27,28 @@ export default function createSearchForm() {
 
     const status = new Select({
         id: "chooseStatus", 
-        classes: ["search", "status"],
+        classes: ["search", "status", "chooseStatus"],
         options: ["All", "Open", "Done"],
         }).render();
     
     const priority = new Select({
         id: "choosePriority", 
-        classes: ["search", "priority"],
+        classes: ["search", "priority", "choosePriority"],
         options: ["All", "High", "Normal", "Low"],
         }).render();
     
-    const submit = new Input({
+    const search = new Input({
         type: "submit", 
         name: "submitSearch", 
         id: "submitSearch", 
         classes: ["search", "inputs", "submit"], 
-        value: "SUBMIT"}).render();
+        value: "SEARCH"}).render();
 
-    formSearch.append(searchField, status,priority, submit);
+    formSearch.append(searchField, status,priority, search);
     divSearch.append(formSearch);
     root.append(divSearch);
 
-    submit.addEventListener("click", function() {
-        console.log("SEARCH");
-        getInfoFromDB().then((data) => {
-            console.log("data ", data);
-            console.log(data.length);
-            
-            if (data.length !== 0) {
-                
-            }
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
-		
-    });
+    search.addEventListener("click", searchCards);
     
     return [formSearch];
 }

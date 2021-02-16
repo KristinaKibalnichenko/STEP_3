@@ -3,6 +3,7 @@ import VisitDentist from "../classes/VisitDentist.js";
 import VisitTherapist from "../classes/VisitTherapist.js";
 import pushInfoToDB from "./pushInfoToDB.js";
 import putInfoToDB from "./putInfoToDB.js";
+import getInfoFromDB from "./getInfoFromDB.js";
 import createNewCard from "./createNewCard.js";
 import CreateCard from "../classes/CreateCard.js";
 import cardsBtnsHandler from "./cardsBtnsHandler.js";
@@ -115,6 +116,12 @@ export default function createDoctorForm(index, visitModal, id = '', content = {
             console.log("Some field(s) do(es) not valid");
         } else {
             if (switcher) {
+                getInfoFromDB()
+                    .then((data) => {
+                        if (data.length == 0) {
+                            document.getElementById("noitems").remove();
+                        }
+                });
                 pushInfoToDB(content)
                     .then((data) => {
                         const returnedid = JSON.parse(data).id;

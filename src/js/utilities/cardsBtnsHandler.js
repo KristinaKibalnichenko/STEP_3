@@ -1,6 +1,8 @@
 import putInfoToDB from "./putInfoToDB.js";
 import deleteInfoFromDB from "./deleteInfoFromDB.js";
 import createModalVisit from "./creatvisit.js";
+import getInfoFromDB from "./getInfoFromDB.js";
+import itemsAbsentAtDB from "./itemsAbsentAtDB.js";
 
 export default function cardsBtnsHandler(card, content) {
     const editBtn = card.getElementsByClassName("cards-btn edit")[0];
@@ -47,7 +49,14 @@ export default function cardsBtnsHandler(card, content) {
             e.stopPropagation();
             addBtnsWrapper.classList.toggle("active");
             deleteInfoFromDB(card.id)
-                .then((data) => {})
+                .then((data) => {
+                    getInfoFromDB()
+                        .then((data) => {
+                            if (data.length == 0) {
+                                itemsAbsentAtDB();
+                            }
+                    });
+                })
                 .catch((err) => {
                     console.log(err.message);
                 });
