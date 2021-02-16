@@ -59,6 +59,8 @@ export default class VisitDoctor {
       classes: ["form-select", "urgency"],
       options: ["Priority", "High", "Normal", "Low"],
     }).render();
+    urgency.options[0].setAttribute("disabled", "disabled");
+    urgency.options[0].setAttribute("selected", "selected");
 
     const additionalInfo = new TextArea({
       maxlength: "300",

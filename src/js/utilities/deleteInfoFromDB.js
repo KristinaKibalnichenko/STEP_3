@@ -1,5 +1,3 @@
-// import getInfoFromDB from "./getInfoFromDB.js";
-
 export default function deleteInfoFromDB(id) {
 	let token = localStorage.getItem("token");
 	return fetch(`https://ajax.test-danit.com/api/cards/${id}`, {

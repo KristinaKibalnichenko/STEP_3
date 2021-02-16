@@ -1,107 +1,40 @@
 import getInfoFromDB from "./getInfoFromDB.js";
 
 export default function searchCards(event) {
+  const cards = document.querySelectorAll(".card-wrapper");
+
+  cards.forEach((card) => {
+    card.style.display = "none";
+  });
   event.preventDefault();
-  let searchInput = document.getElementById("inpurSearch");
-  let statusFilter = document.querySelector(".chooseStatus");
-  let priorityFilter = document.querySelector(".choosePriority");
-  
+  let searchInput = document.getElementById("inpurSearch").value;
+  let statusFilter = document.querySelector(".chooseStatus").value;
+  let priorityFilter = document.querySelector(".choosePriority").value;
+
   getInfoFromDB()
-      .then((data) => {
-      console.log("data search ", data);
+    .then((data) => {
       if (data.length !== 0) {
-        filterCards(searchInput, data, priorityFilter, statusFilter);         
+        const result = filterCards(data);
+        result.forEach((item) => {
+          cards.forEach((elem) => {
+            if (item.id == elem.id) {
+              elem.style.display = "block";
+            }
+          });
+        });
       }
     })
     .catch((error) => console.log(error));
-  
-  function filterCards(searchField, data, priority, status) {
-    data.forEach((elem) => {
-      if (
-        status.value !== "All" &&
-        priority.value !== "All" &&
-        searchField.value !== ""
-      ) {
-        if (
-          elem.content.status === status.value &&
-          elem.content.priority === priority.value &&
-          elem.content.title
-            .toUpperCase()
-            .includes(searchField.value.toUpperCase())
-        ) {
-          console.log(elem);
-        }
-      } else if (
-        status.value !== "All" &&
-        priority.value === "All" &&
-        searchField.value !== ""
-      ) {
-        if (
-          elem.content.status === status.value &&
-          elem.content.title
-            .toUpperCase()
-            .includes(searchField.value.toUpperCase())
-        ) {
-          console.log(elem);
-        }
-      } else if (
-        status.value === "All" &&
-        priority.value !== "All" &&
-        searchField.value !== ""
-      ) {
-        if (
-          elem.content.priority === priority.value &&
-          elem.content.title
-            .toUpperCase()
-            .includes(searchField.value.toUpperCase())
-        ) {
-          console.log(elem);
-        }
-      } else if (
-        status.value !== "All" &&
-        priority.value === "All" &&
-        searchField.value === ""
-      ) {
-        if (elem.content.status === status.value) {
-          console.log(elem);
-        }
-      } else if (
-        status.value === "All" &&
-        priority.value !== "All" &&
-        searchField.value === ""
-      ) {
-        if (elem.content.priority === priority.value) {
-          console.log(elem);
-        }
-      } else if (
-        status.value !== "All" &&
-        priority.value !== "All" &&
-        searchField.value === ""
-      ) {
-        if (
-          elem.content.status === status.value &&
-          elem.content.priority === priority.value
-        ) {
-          console.log(elem);
-        }
-      } else if (
-        status.value === "All" &&
-        priority.value === "All" &&
-        searchField.value !== ""
-      ) {
-        elem.content.title
-          .toUpperCase()
-          .includes(searchField.value.toUpperCase());
-        {
-          console.log(elem);
-        }
-      } else if (
-        status.value === "All" &&
-        priority.value === "All" &&
-        searchField.value === ""
-      ) {
-        console.log(elem);
-      }
-    });
+
+  function filterCards(data) {
+    return data.filter(
+      ({ content }) =>
+        (statusFilter === content.status || statusFilter === "All") &&
+        (content.priority === priorityFilter || priorityFilter === "All") &&
+        (content.description
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+          !searchInput)
+    );
   }
 }

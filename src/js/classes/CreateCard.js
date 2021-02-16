@@ -37,7 +37,6 @@ export default class CreateCard {
         const statusDoneBtn = this.createElement({
             elem: "button",
             content: ["Exchange status to \"DONE\""],
-            // content: [this.content.status, " Exchange status to \"DONE\""],
             id: "doneBtn",
             classes: ["cards-btn", "done"],
         });
@@ -51,8 +50,8 @@ export default class CreateCard {
             id: this.id,
             classes: ["card-wrapper"],
             content: [...contentelems, addBtnWrapper, divBtnWrapper],
-            attr: "draggable", 
-            value: true,
+            // attr: "draggable", 
+            // value: true,
         });
 
         return wrapper;
