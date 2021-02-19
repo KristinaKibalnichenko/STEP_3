@@ -68,11 +68,12 @@ a {
 
 #main {
   position: relative;
+  margin-top: 20px;
 }
 
 .modal {
   display: none;
-  margin: 10vh auto 0 auto;
+  margin: 0 auto;
   padding: 20px;
   width: 45vw;
   overflow: auto;
