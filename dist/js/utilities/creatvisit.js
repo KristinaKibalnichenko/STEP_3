@@ -18,6 +18,7 @@ export default function createModalVisit(switcher, id, content) {
       const selectForm = document.querySelector("#visit-form");
       selectForm.style.display = "block";
       const select = document.querySelector(".form-select");
+      // visitModal.scrollIntoView();
     
       select.addEventListener("change", () => {
         let index = select.options.selectedIndex;

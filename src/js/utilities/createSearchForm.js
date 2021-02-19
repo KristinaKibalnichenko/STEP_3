@@ -21,7 +21,7 @@ export default function createSearchForm() {
         name: "inpurSearch", 
         id: "inpurSearch", 
         classes: ["search", "inputs"], 
-        placeholder: "Search by title or description", 
+        placeholder: "Search by description", 
         value: ""}).render();
 
     const status = new Select({

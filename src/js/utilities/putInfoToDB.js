@@ -9,6 +9,6 @@ export default function putInfoToDB(id, content) {
 		},
 	}).then((response) => response.text())
 	.catch((err) => {
-		console.log("message of Post request: ", err.message);
+		console.log("message of Put request: ", err.message);
 	});
 }
