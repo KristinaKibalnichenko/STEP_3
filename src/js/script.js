@@ -17,9 +17,3 @@ if (localStorage.getItem("token") == null) {
 	createModalVisit(true);
 }
 
-
-///////////////////////////////////////////////////////////////////////////////////////
-
-// alert(response.headers.get('Content-Type'));
-
-// withCredentials: true;  о токене

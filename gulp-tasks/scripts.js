@@ -23,7 +23,7 @@ const scripts = () => {
 		.pipe(rename({
 			extname: ".min.js"
 		}))
-		.pipe(dest("./dist/js/classes_min/"))
+		.pipe(dest("./dist/js/classes/"))
 		.pipe(browsersync.reload({ stream: true }));
 
 	src("./src/js/utilities/*.js")
@@ -33,7 +33,7 @@ const scripts = () => {
 		.pipe(rename({
 			extname: ".min.js"
 		}))
-		.pipe(dest("./dist/js/utilities_min/"))
+		.pipe(dest("./dist/js/utilities/"))
 		.pipe(browsersync.reload({ stream: true }));
 	};
 
