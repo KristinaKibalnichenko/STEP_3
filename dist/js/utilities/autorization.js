@@ -74,7 +74,7 @@ function autorization(personalData) {
 			'Content-Type': 'application/json;charset=utf-8'
 		},
 	})
-	.then((response) => {	
+	.then((response) => {
 		status = response.status;
 		console.log("autorization", response);
 		return response.text();
