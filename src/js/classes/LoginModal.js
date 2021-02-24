@@ -22,7 +22,7 @@ export default class LoginModal extends Modal {
             content: "",
             classes: ["addinfo"],
             id: "addinfo",
-          });
+        });
 
         const login = new Input({
             type: "email", 
@@ -30,8 +30,17 @@ export default class LoginModal extends Modal {
             required: true, 
             id: "login", 
             classes: ["inputs"], 
-            placeholder: "Email address", 
-            value: ""}).render();
+            placeholder: "", 
+            value: "example.cards@gmail.com"}).render();
+            // value: ""}).render();
+        const labelLogin = this.createElement({
+            elem: "label",
+            content: ["Email address", login],
+            classes: ["autorization-label"],
+            // forlabel: "login",
+            // value: "Email address" + login,
+            // id: "addinfo",
+        });
 
         const password = new Input({
             type: "password", 
@@ -39,8 +48,17 @@ export default class LoginModal extends Modal {
             required: true, 
             id: "password", 
             classes: ["inputs"], 
-            placeholder: "Password", 
-            value: ""}).render();
+            placeholder: "", 
+            value: "test"}).render();
+            // value: ""}).render();
+        const labelPassword = this.createElement({
+            elem: "label",
+            content: ["Password", password],
+            classes: ["autorization-label"],
+            // forlabel: "password",
+            // value: "Password",
+            // id: "addinfo",
+        });
 
         const submit = new Input({
             type: "submit", 
@@ -49,7 +67,8 @@ export default class LoginModal extends Modal {
             classes: ["inputs", "submit"], 
             value: "SUBMIT"}).render();
 
-            return [additionalInfo, login, password, submit];
+            // return [additionalInfo, login, password, submit];
+            return [additionalInfo, labelLogin, labelPassword, submit];
             // return this.createForm([login, password, submit]);
     }
 

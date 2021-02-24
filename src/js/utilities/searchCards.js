@@ -27,14 +27,14 @@ export default function searchCards(event) {
     .catch((error) => console.log(error));
 
   function filterCards(data) {
-    return data.filter(
-      ({ content }) =>
-        (statusFilter === content.status || statusFilter === "All") &&
-        (content.priority === priorityFilter || priorityFilter === "All") &&
-        (content.description
-          .toLowerCase()
-          .includes(searchInput.toLowerCase()) ||
-          !searchInput)
-    );
+    return data.filter(({ content }) => 
+      (statusFilter === content.status || statusFilter === "All" || statusFilter === "Status")
+      &&
+      (content.priority === priorityFilter || priorityFilter === "All" || priorityFilter === "Priority")
+      &&
+      (content.description
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()) ||
+        !searchInput));
   }
 }

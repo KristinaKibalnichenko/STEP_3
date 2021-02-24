@@ -10,7 +10,7 @@ export function createAutorizationWindow() {
 		classes: ["modal", "login"],
 	});
 	loginForm.createFormElements();
-	loginForm.modal.style.width = "50vw";
+	loginForm.modal.style.width = "45vw";
 	root.append(loginForm.modal);
 	loginBtn.addEventListener("click", function() {
 		loginForm.openModal();
@@ -47,7 +47,7 @@ function signIn(event) {
 		} else {
 			span.textContent = 'Incorrect username or password';
 			span.style.color = "red";
-			span.style.padding = "0 10px";
+			// span.style.marginBottom = "10px";
 			flag = false;
 		}
 		if (!flag) {

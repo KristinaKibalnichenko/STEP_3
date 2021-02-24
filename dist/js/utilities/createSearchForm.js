@@ -27,13 +27,13 @@ export default function createSearchForm() {
     const status = new Select({
         id: "chooseStatus", 
         classes: ["search", "status", "chooseStatus"],
-        options: ["All", "Open", "Done"],
+        options: ["Status", "All", "Open", "Done"],
         }).render();
     
     const priority = new Select({
         id: "choosePriority", 
         classes: ["search", "priority", "choosePriority"],
-        options: ["All", "High", "Normal", "Low"],
+        options: ["Priority", "All", "High", "Normal", "Low"],
         }).render();
     
     const search = new Input({
